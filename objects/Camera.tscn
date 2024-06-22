@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://7oyofxooer87"]
+
+[ext_resource type="Script" path="res://objects/Camera.gd" id="1_2cpas"]
+[ext_resource type="Texture2D" uid="uid://dhgxstfex3l5p" path="res://assets/camera/camera-on.png" id="1_jbi7c"]
+[ext_resource type="Texture2D" uid="uid://dalurg7lemyuc" path="res://assets/camera/camera-off.png" id="2_2mssq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_php06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2mssq")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jbi7c")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="Camera" type="Area2D"]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("1_2cpas")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_php06")
+animation = &"off"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+self_modulate = Color(0.988235, 1, 1, 1)
+show_behind_parent = true
+polygon = PackedVector2Array(0, 0, 300, 2.08165e-12, 285.317, 92.705, 242.705, 176.336, 176.336, 242.705, 92.705, 285.317, 2.08165e-12, 300)
+
+[node name="YRayon" type="ColorRect" parent="CollisionPolygon2D"]
+offset_right = 10.0
+offset_bottom = 300.0
+color = Color(1, 0, 0, 0.592157)
+
+[node name="XRayon" type="ColorRect" parent="CollisionPolygon2D"]
+offset_right = 300.0
+offset_bottom = 10.0
+color = Color(1, 0, 0, 0.592157)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
