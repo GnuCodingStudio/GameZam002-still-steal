@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-[gd_scene load_steps=5 format=3 uid="uid://b7s1r2dws8hvo"]
+[gd_scene load_steps=7 format=3 uid="uid://b7s1r2dws8hvo"]
 
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_cwl6b"]
 [ext_resource type="Script" path="res://scenes/levels/Level_04.gd" id="1_f56m7"]
-[ext_resource type="PackedScene" uid="uid://bycvdu0l1rsc8" path="res://scenes/TheEnd.tscn" id="2_adigl"]
-=======
-[gd_scene load_steps=6 format=3 uid="uid://b7s1r2dws8hvo"]
-
-[ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_cwl6b"]
-[ext_resource type="Script" path="res://scenes/levels/Level_04.gd" id="1_f56m7"]
+[ext_resource type="PackedScene" uid="uid://bycvdu0l1rsc8" path="res://scenes/TheEnd.tscn" id="2_kgdhm"]
 [ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="3_ou7bs"]
->>>>>>> 50e83af (Update player and guard animated sprites)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
 size = Vector2(20.4, 51)
@@ -25,7 +18,7 @@ point_count = 3
 script = ExtResource("1_f56m7")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
-next_level = ExtResource("2_adigl")
+next_level = ExtResource("2_kgdhm")
 
 [node name="Fourth" type="TileMap" parent="."]
 position = Vector2(0, -3)

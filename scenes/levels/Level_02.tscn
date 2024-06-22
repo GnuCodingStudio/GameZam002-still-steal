@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/levels/Level_02.gd" id="1_1fwd5"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_l7o1v"]
-[ext_resource type="PackedScene" uid="uid://bbldg58i11kmh" path="res://scenes/levels/Level_03.tscn" id="2_jqq2i"]
+[ext_resource type="PackedScene" uid="uid://bbldg58i11kmh" path="res://scenes/levels/Level_03.tscn" id="2_2rtaf"]
 [ext_resource type="PackedScene" uid="uid://b2xmxsw5evod0" path="res://objects/WoodenChest.tscn" id="4_p2bkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpmx1"]
@@ -12,7 +12,7 @@ size = Vector2(20.4, 51)
 script = ExtResource("1_1fwd5")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
-next_level = ExtResource("2_jqq2i")
+next_level = ExtResource("2_2rtaf")
 
 [node name="Second" type="TileMap" parent="."]
 position = Vector2(0, -3)
