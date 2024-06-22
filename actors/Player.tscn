@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://bqaa13artpb1x"]
+[gd_scene load_steps=4 format=3 uid="uid://bqaa13artpb1x"]
 
-[node name="Player" type="Node2D"]
+[ext_resource type="Script" path="res://actors/Player.gd" id="1_gr5pk"]
+[ext_resource type="Texture2D" uid="uid://bj8xp0a1q5us7" path="res://assets/tilesheet.png" id="2_u1v5a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uscve"]
+
+[node name="Player" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 47
+gravity_scale = 1.66533e-16
+script = ExtResource("1_gr5pk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_u1v5a")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 1024, 128, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_uscve")
