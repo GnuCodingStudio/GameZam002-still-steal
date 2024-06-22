@@ -6,9 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5dw7"]
 size = Vector2(20.4, 51)
 
-[node name="Level01" type="Node2D" node_paths=PackedStringArray("start_point")]
+[node name="Level01" type="Node2D" node_paths=PackedStringArray("start_point", "finish_area")]
 script = ExtResource("1_0k48h")
 start_point = NodePath("StartPoint")
+finish_area = NodePath("FinishArea")
 
 [node name="First" type="TileMap" parent="."]
 position = Vector2(0, -3)
@@ -37,5 +38,3 @@ modulate = Color(0, 1, 0, 1)
 position = Vector2(1290, -1.78814e-07)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_c5dw7")
-
-[connection signal="body_entered" from="FinishArea" to="." method="_on_body_entered"]
