@@ -5,11 +5,12 @@ class_name BasicLevel
 @export var finish_area: Area2D
 @export var next_level: PackedScene
 
+var player: Player
 var _chests_to_open = 0
 
 func _ready():
 	var playerScene = preload("res://actors/Player.tscn")
-	var player = playerScene.instantiate()
+	player = playerScene.instantiate()
 	player.position = start_point.position
 	add_child(player)
 	
@@ -24,8 +25,9 @@ func _ready():
 
 func _finish_entered(body):
 	if is_level_completed() and body is Player:
-		print("Level completed")
-		await get_tree().create_timer(1.5).timeout
+		player.modulate.a = .5
+		player.disabled = true
+		await get_tree().create_timer(1.2).timeout
 		get_tree().change_scene_to_packed(next_level)
 
 

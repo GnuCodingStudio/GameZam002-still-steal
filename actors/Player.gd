@@ -8,9 +8,15 @@ class_name Player
 
 var moving_direction: Vector2
 var facing_direction: Vector2
+var disabled: bool:
+	set(value):
+		moving_direction = Vector2.ZERO
+		disabled = value
 
 func _unhandled_input(event):
-	moving_direction = Input.get_vector("left", "right", "up", "down")
+	if not disabled:
+		moving_direction = Input.get_vector("left", "right", "up", "down")
+	
 	if moving_direction != Vector2.ZERO:
 		facing_direction = moving_direction
 
@@ -45,3 +51,4 @@ func _ajust_facing_orientation():
 		animated_sprite_2d.play("facing_top")
 	elif facing_direction.y > 0:
 		animated_sprite_2d.play("facing_bottom")
+	
