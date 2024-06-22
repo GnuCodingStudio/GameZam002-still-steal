@@ -46,6 +46,14 @@ right={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="wall"
+2d_physics/layer_2="chest"
+2d_physics/layer_3="camera"
+2d_physics/layer_4="guard"
+2d_physics/layer_5="player"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
