@@ -1,18 +1,13 @@
-extends Area2D
+extends Node2D
 
 class_name Camera
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var collision_polygon_2d = $CollisionPolygon2D
+@onready var detection_area = %DetectionArea
+@onready var animated_sprite = %AnimatedSprite
+@onready var detection_shape = %DetectionShape
 @export var deactivation_camera_timer = 2
 
 signal on_player_catch()
-
-
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			deactivateCamera()
 
 
 func _on_body_entered(body):
@@ -21,14 +16,20 @@ func _on_body_entered(body):
 		
 		
 func activateCamera():
-	animated_sprite_2d.play('on')
-	collision_polygon_2d.disabled = false
-	collision_polygon_2d.visible = true
+	animated_sprite.play("on")
+	detection_shape.disabled = false
+	detection_area.visible = true
 	
 	
 func deactivateCamera():
-	animated_sprite_2d.play('off')
-	collision_polygon_2d.disabled = true
-	collision_polygon_2d.visible = false
+	animated_sprite.play("off")
+	detection_shape.disabled = true
+	detection_area.visible = false
 	await get_tree().create_timer(deactivation_camera_timer).timeout
 	activateCamera()
+
+
+func _on_actionnable_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			deactivateCamera()

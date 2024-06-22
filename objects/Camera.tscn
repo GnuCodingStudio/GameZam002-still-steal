@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://7oyofxooer87"]
+[gd_scene load_steps=6 format=3 uid="uid://7oyofxooer87"]
 
 [ext_resource type="Script" path="res://objects/Camera.gd" id="1_2cpas"]
 [ext_resource type="Texture2D" uid="uid://dhgxstfex3l5p" path="res://assets/camera/camera-on.png" id="1_jbi7c"]
 [ext_resource type="Texture2D" uid="uid://dalurg7lemyuc" path="res://assets/camera/camera-off.png" id="2_2mssq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4cot1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_php06"]
 animations = [{
@@ -23,29 +25,43 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Camera" type="Area2D"]
-collision_layer = 4
-collision_mask = 16
+[node name="Camera" type="Node2D"]
 script = ExtResource("1_2cpas")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-sprite_frames = SubResource("SpriteFrames_php06")
-animation = &"on"
+[node name="ActionnableArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionnableArea"]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_4cot1")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 16
+
+[node name="DetectionShape" type="CollisionPolygon2D" parent="DetectionArea"]
+unique_name_in_owner = true
 self_modulate = Color(0.988235, 1, 1, 1)
 show_behind_parent = true
 polygon = PackedVector2Array(0, 0, 300, 2.08165e-12, 285.317, 92.705, 242.705, 176.336, 176.336, 242.705, 92.705, 285.317, 2.08165e-12, 300)
 
-[node name="YRayon" type="ColorRect" parent="CollisionPolygon2D"]
+[node name="YRayon" type="ColorRect" parent="DetectionArea"]
 offset_right = 10.0
 offset_bottom = 300.0
 color = Color(1, 0, 0, 0.592157)
 
-[node name="XRayon" type="ColorRect" parent="CollisionPolygon2D"]
+[node name="XRayon" type="ColorRect" parent="DetectionArea"]
 offset_right = 300.0
 offset_bottom = 10.0
 color = Color(1, 0, 0, 0.592157)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.095, 0.095)
+sprite_frames = SubResource("SpriteFrames_php06")
+animation = &"on"
+
+[connection signal="input_event" from="ActionnableArea" to="." method="_on_actionnable_input_event"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_body_entered"]
+[connection signal="input_event" from="DetectionArea" to="DetectionArea" method="_on_input_event"]
