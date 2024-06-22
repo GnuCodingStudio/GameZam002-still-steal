@@ -1,11 +1,25 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://b7s1r2dws8hvo"]
 
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_cwl6b"]
 [ext_resource type="Script" path="res://scenes/levels/Level_04.gd" id="1_f56m7"]
 [ext_resource type="PackedScene" uid="uid://bycvdu0l1rsc8" path="res://scenes/TheEnd.tscn" id="2_adigl"]
+=======
+[gd_scene load_steps=6 format=3 uid="uid://b7s1r2dws8hvo"]
+
+[ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_cwl6b"]
+[ext_resource type="Script" path="res://scenes/levels/Level_04.gd" id="1_f56m7"]
+[ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="3_ou7bs"]
+>>>>>>> 50e83af (Update player and guard animated sprites)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
 size = Vector2(20.4, 51)
+
+[sub_resource type="Curve2D" id="Curve2D_kfcbi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 900, 250, 0, 0, 0, 0, 900, 720, 0, 0, 0, 0, 900, 250)
+}
+point_count = 3
 
 [node name="Level04" type="Node2D" node_paths=PackedStringArray("start_point", "finish_area")]
 script = ExtResource("1_f56m7")
@@ -44,3 +58,17 @@ modulate = Color(0, 1, 0, 1)
 position = Vector2(1290, -1.78814e-07)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_ethtd")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_kfcbi")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(900, 349.998)
+rotation = 1.5708
+progress = 100.0
+rotates = false
+
+[node name="Guard" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path_follow") instance=ExtResource("3_ou7bs")]
+position = Vector2(-0.979906, 0.321964)
+rotation = -1.58774
+path_follow = NodePath("..")
