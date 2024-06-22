@@ -1,4 +1,4 @@
-extends Node2D
+extends BasicLevel
 
 var chest_to_collect = 1
 

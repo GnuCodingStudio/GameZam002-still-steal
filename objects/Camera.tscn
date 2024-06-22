@@ -31,7 +31,7 @@ script = ExtResource("1_2cpas")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_php06")
-animation = &"off"
+animation = &"on"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 self_modulate = Color(0.988235, 1, 1, 1)
