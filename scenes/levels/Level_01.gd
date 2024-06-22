@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var start_point = %StartPoint
-@onready var finish = %Finish
+@onready var finish = %FinishArea
 
 func _ready():
 	var playerScene = preload("res://actors/Player.tscn")
@@ -15,6 +15,5 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print('Body entered')
 	if (body is Player):
 		print('Finish')
