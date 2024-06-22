@@ -6,6 +6,8 @@ class_name Camera
 @onready var collision_polygon_2d = $CollisionPolygon2D
 @export var deactivation_camera_timer = 2
 
+signal on_player_catch()
+
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -15,7 +17,7 @@ func _input(event):
 
 func _on_body_entered(body):
 	if body is Player:
-		print('Lose...')
+		on_player_catch.emit()
 		
 		
 func activateCamera():

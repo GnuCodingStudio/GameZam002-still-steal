@@ -47,3 +47,4 @@ unique_name_in_owner = true
 position = Vector2(-208, -171)
 
 [connection signal="body_entered" from="FinishArea" to="." method="_on_body_entered"]
+[connection signal="on_player_catch" from="Camera" to="." method="_on_player_catch"]
