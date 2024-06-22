@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc5ki46fat1h5"]
+[gd_scene load_steps=6 format=3 uid="uid://bc5ki46fat1h5"]
 
+[ext_resource type="Script" path="res://scenes/levels/Level_02.gd" id="1_1fwd5"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_l7o1v"]
+[ext_resource type="PackedScene" uid="uid://bqaa13artpb1x" path="res://actors/Player.tscn" id="2_ujuto"]
+[ext_resource type="PackedScene" uid="uid://b2xmxsw5evod0" path="res://objects/WoodenChest.tscn" id="4_p2bkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpmx1"]
+size = Vector2(20.4, 51)
 
 [node name="Level02" type="Node2D"]
+script = ExtResource("1_1fwd5")
 
 [node name="Second" type="TileMap" parent="."]
 position = Vector2(0, -3)
@@ -13,6 +20,25 @@ layer_0/tile_data = PackedInt32Array(-1, 458752, 0, 65535, 458752, 0, -65536, 45
 layer_1/name = "walls"
 layer_1/tile_data = PackedInt32Array(-131068, 655360, 0, -131069, 655360, 0, -131070, 655360, 0, -131071, 655360, 0, -131072, 655360, 0, -65537, 655360, 0, -65538, 655360, 0, -65539, 655360, 0, 131069, 655360, 805306368, 131070, 655360, 805306368, 131071, 655360, 805306368, 65536, 655360, 805306368, 65537, 655360, 805306368, 65538, 655360, 805306368, 65539, 655360, 805306368, 65540, 655360, 805306368, -65540, 589824, 0, 131068, 589824, 1610612736, 65545, 589824, 805306368, -131063, 589824, 1342177280, -131067, 655360, 0, -131066, 655360, 0, -131065, 655360, 0, -131064, 655360, 0, 65541, 655360, 805306368, 65542, 655360, 805306368, 65543, 655360, 805306368, 65544, 655360, 805306368)
 layer_2/name = "player"
-layer_2/tile_data = PackedInt32Array(-4, 0, 8)
+layer_2/tile_data = PackedInt32Array()
 layer_3/name = "chest"
-layer_3/tile_data = PackedInt32Array(-131069, 2, 65536)
+layer_3/tile_data = PackedInt32Array()
+
+[node name="Player" parent="." instance=ExtResource("2_ujuto")]
+
+[node name="FinishArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(1290, -1.78814e-07)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_mpmx1")
+
+[node name="Chest" parent="." instance=ExtResource("4_p2bkp")]
+position = Vector2(320, -195)
+
+[connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_entered"]
+[connection signal="on_opened" from="Chest" to="." method="_on_chest_on_opened"]
