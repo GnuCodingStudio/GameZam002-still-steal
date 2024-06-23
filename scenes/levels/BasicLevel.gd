@@ -96,10 +96,11 @@ func _you_failed():
 	audioPlayer.play()
 
 	player.disabled = true
+	await audioPlayer.finished
 	await get_tree().create_timer(0.3).timeout
 	const youFailedScene = preload("res://scenes/YouFailed.tscn")
 	add_child(youFailedScene.instantiate())
 
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(.5).timeout
 	audioPlayer.queue_free()
 	get_tree().reload_current_scene()
