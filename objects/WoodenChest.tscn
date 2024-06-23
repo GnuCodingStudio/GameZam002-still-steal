@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2xmxsw5evod0"]
+[gd_scene load_steps=8 format=3 uid="uid://b2xmxsw5evod0"]
 
 [ext_resource type="Texture2D" uid="uid://cl6l3l0d310ug" path="res://assets/chests_32x32.png" id="1_e3mxn"]
 [ext_resource type="Script" path="res://objects/WoodenChest.gd" id="1_o70n8"]
+[ext_resource type="AudioStream" uid="uid://d4brh3ha8bqot" path="res://assets/audio/Coin.wav" id="3_eetpu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_knnkx"]
 atlas = ExtResource("1_e3mxn")
@@ -49,3 +50,7 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AccessibleArea"]
 shape = SubResource("RectangleShape2D_qyi60")
 debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="Coin" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_eetpu")
