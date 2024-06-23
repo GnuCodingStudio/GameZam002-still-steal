@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://boo5037p0nd4f"
+path="res://.godot/imported/Camera up ! (mp3cut.net).mp3-be3a02c6a36243e6ebc776240b4f4512.mp3str"
+
+[deps]
+
+source_file="res://assets/sons/Camera up ! (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/Camera up ! (mp3cut.net).mp3-be3a02c6a36243e6ebc776240b4f4512.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

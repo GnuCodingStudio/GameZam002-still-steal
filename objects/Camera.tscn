@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://7oyofxooer87"]
+[gd_scene load_steps=8 format=3 uid="uid://7oyofxooer87"]
 
 [ext_resource type="Script" path="res://objects/Camera.gd" id="1_2cpas"]
 [ext_resource type="Texture2D" uid="uid://dhgxstfex3l5p" path="res://assets/camera/camera-on.png" id="1_jbi7c"]
 [ext_resource type="Texture2D" uid="uid://dalurg7lemyuc" path="res://assets/camera/camera-off.png" id="2_2mssq"]
+[ext_resource type="AudioStream" uid="uid://cfkt5daaaa602" path="res://assets/sons/Camera down (mp3cut.net).mp3" id="4_4f0nm"]
+[ext_resource type="AudioStream" uid="uid://boo5037p0nd4f" path="res://assets/sons/Camera up ! (mp3cut.net).mp3" id="5_5el0t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cot1"]
 
@@ -61,6 +63,14 @@ unique_name_in_owner = true
 scale = Vector2(0.095, 0.095)
 sprite_frames = SubResource("SpriteFrames_php06")
 animation = &"on"
+
+[node name="AudioDown" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_4f0nm")
+
+[node name="AudioUp" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_5el0t")
 
 [connection signal="input_event" from="ActionnableArea" to="." method="_on_actionnable_input_event"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_body_entered"]
