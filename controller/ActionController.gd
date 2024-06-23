@@ -17,7 +17,7 @@ func activate() -> bool:
 	
 	if max_actions >= 0:
 		max_actions -= 1
-		remaining_actions.text = str(max_actions)
+		remaining_actions.text = str(max(max_actions, 0))
 	
 	return can_activate
 
