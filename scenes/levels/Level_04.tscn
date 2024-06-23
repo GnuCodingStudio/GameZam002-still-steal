@@ -57,7 +57,7 @@ max_actions = 5
 
 [node name="StartPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-447, -66)
+position = Vector2(-448, -64)
 
 [node name="FinishArea" type="Area2D" parent="."]
 unique_name_in_owner = true

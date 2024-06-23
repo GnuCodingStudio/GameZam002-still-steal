@@ -31,7 +31,7 @@ layer_4/name = "floor_deco"
 layer_4/tile_data = PackedInt32Array(-4, 720896, 1610612736, 65532, 720896, 1610612736, -65526, 589824, 1342177283, 10, 589824, 805306371)
 
 [node name="StartPoint" type="Node2D" parent="."]
-position = Vector2(-448, 1)
+position = Vector2(-320, 0)
 
 [node name="FinishArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -40,7 +40,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(1290, -1.78814e-07)
+position = Vector2(1286, -3)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_mpmx1")
 
