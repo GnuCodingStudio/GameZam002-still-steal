@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnip4dw2t0cox"]
+[gd_scene load_steps=7 format=3 uid="uid://bnip4dw2t0cox"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level_03.gd" id="1_53rdt"]
 [ext_resource type="PackedScene" uid="uid://b7s1r2dws8hvo" path="res://scenes/levels/Level_04.tscn" id="2_oofps"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="3_xyd7i"]
 [ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="5_15jxy"]
+[ext_resource type="AudioStream" uid="uid://bdltph0w83tra" path="res://assets/audio/Level35.ogg" id="5_l561m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
 size = Vector2(20.4, 51)
@@ -47,5 +48,9 @@ shape = SubResource("RectangleShape2D_ethtd")
 [node name="Guard" parent="." instance=ExtResource("5_15jxy")]
 position = Vector2(1180, -4)
 rotation = 1.5708
+
+[node name="Intro" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_l561m")
 
 [connection signal="body_entered" from="FinishArea" to="." method="_on_body_entered"]
