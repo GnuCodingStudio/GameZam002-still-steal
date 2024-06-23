@@ -6,15 +6,14 @@ class_name Guard
 @export var rotation_speed: float = 10
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @export var path_follow: PathFollow2D
+@export var action_controller: ActionController
 
 signal stun_guard()
 
 var moving_direction: Vector2
 var facing_direction: Vector2
 var last_position: Vector2
-
 var state: GuardState = GuardState.MOVING
-
 
 enum GuardState { STUN, MOVING }
 
@@ -75,8 +74,9 @@ func _on_actionnable_input_event(viewport, event, shape_idx):
 			stun()
 
 func stun():
-	state = GuardState.STUN
-	animated_sprite_2d.play("stun")
-	self.modulate = Color(0.5,0.5,0.5)
+	if action_controller == null or action_controller.activate():
+		state = GuardState.STUN
+		animated_sprite_2d.play("stun")
+		self.modulate = Color(0.5,0.5,0.5)
 	
 	

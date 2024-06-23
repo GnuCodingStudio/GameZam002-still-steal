@@ -70,10 +70,11 @@ position = Vector2(1290, -1.78814e-07)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_ethtd")
 
-[node name="Guard1" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("3_ou7bs")]
+[node name="Guard1" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("3_ou7bs")]
 position = Vector2(896, 251)
 rotation = -0.01694
 path_follow = NodePath("../Path1/PathFollow2D")
+action_controller = NodePath("../ActionController")
 
 [node name="Path1" type="Path2D" parent="."]
 curve = SubResource("Curve2D_kfcbi")
@@ -85,10 +86,11 @@ progress = 100.0
 rotates = false
 cubic_interp = false
 
-[node name="Guard2" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("3_ou7bs")]
+[node name="Guard2" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("3_ou7bs")]
 position = Vector2(-443, 286)
 rotation = -0.00596414
 path_follow = NodePath("../Path2/PathFollow2D")
+action_controller = NodePath("../ActionController")
 
 [node name="Path2" type="Path2D" parent="."]
 curve = SubResource("Curve2D_5jl6r")
@@ -98,10 +100,11 @@ position = Vector2(-443, 286)
 rotation = -0.00596414
 rotates = false
 
-[node name="Guard3" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("3_ou7bs")]
+[node name="Guard3" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("3_ou7bs")]
 position = Vector2(-225, 511)
 rotation = -0.01694
 path_follow = NodePath("../Path3/PathFollow2D")
+action_controller = NodePath("../ActionController")
 
 [node name="Path3" type="Path2D" parent="."]
 curve = SubResource("Curve2D_sjck3")
@@ -134,8 +137,9 @@ position = Vector2(215, 552)
 [node name="Chest2" parent="." instance=ExtResource("6_fjc6a")]
 position = Vector2(-226, 458)
 
-[node name="Guard4" parent="." instance=ExtResource("3_ou7bs")]
+[node name="Guard4" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("3_ou7bs")]
 position = Vector2(449, 428)
+action_controller = NodePath("../ActionController")
 
 [connection signal="on_player_catch" from="Camera1" to="." method="_on_player_catch"]
 [connection signal="on_player_catch" from="Camera2" to="." method="_on_player_catch"]
