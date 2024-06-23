@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bnip4dw2t0cox"]
 
-[ext_resource type="Script" path="res://scenes/levels/Level_03.gd" id="1_53rdt"]
+[ext_resource type="Script" path="res://scenes/levels/Level_035.gd" id="1_2bn3g"]
 [ext_resource type="PackedScene" uid="uid://b7s1r2dws8hvo" path="res://scenes/levels/Level_04.tscn" id="2_oofps"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="3_xyd7i"]
 [ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="5_15jxy"]
@@ -10,7 +10,7 @@
 size = Vector2(20.4, 51)
 
 [node name="Level035" type="Node2D" node_paths=PackedStringArray("start_point", "finish_area")]
-script = ExtResource("1_53rdt")
+script = ExtResource("1_2bn3g")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
 next_level = ExtResource("2_oofps")
