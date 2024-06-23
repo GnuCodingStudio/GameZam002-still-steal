@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7s1r2dws8hvo"]
+[gd_scene load_steps=13 format=3 uid="uid://b7s1r2dws8hvo"]
 
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_cwl6b"]
 [ext_resource type="Script" path="res://scenes/levels/Level_04.gd" id="1_f56m7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="5_ymhbm"]
 [ext_resource type="PackedScene" uid="uid://b2xmxsw5evod0" path="res://objects/WoodenChest.tscn" id="6_fjc6a"]
 [ext_resource type="PackedScene" uid="uid://kr66s3n8pjx" path="res://controller/ActionController.tscn" id="6_j1qnq"]
+[ext_resource type="AudioStream" uid="uid://udw6raaa6jkm" path="res://assets/audio/Level04.ogg" id="8_r5wvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
 size = Vector2(20.4, 51)
@@ -141,6 +142,10 @@ position = Vector2(-226, 458)
 position = Vector2(449, 428)
 rotation = 3.14159
 action_controller = NodePath("../ActionController")
+
+[node name="Intro" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_r5wvm")
 
 [connection signal="on_player_catch" from="Camera1" to="." method="_on_player_catch"]
 [connection signal="on_player_catch" from="Camera2" to="." method="_on_player_catch"]
