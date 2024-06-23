@@ -13,19 +13,19 @@ size = Vector2(20.4, 51)
 
 [sub_resource type="Curve2D" id="Curve2D_kfcbi"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 900, 250, 0, 0, 0, 0, 900, 720, 0, 0, 0, 0, 900, 250)
+"points": PackedVector2Array(0, 0, 0, 0, 900, 350, 0, 0, 0, 0, 900, 600, 0, 0, 0, 0, 900, 350)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_5jl6r"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -443, 286, 0, 0, 0, 0, 60, 283, 0, 0, 0, 0, 69, 673, 0, 0, 0, 0, 60, 283, 0, 0, 0, 0, -442, 286, 0, 0, 0, 0, -443, 286)
+"points": PackedVector2Array(0, 0, 0, 0, -443, 286, 0, 0, 0, 0, 20, 283, 0, 0, 0, 0, 20, 673, 0, 0, 0, 0, 20, 283, 0, 0, 0, 0, -442, 286, 0, 0, 0, 0, -443, 286)
 }
 point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_sjck3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -255, 495, 0, 0, 0, 0, -253, 929, 0, 0, 0, 0, -453, 932, 0, 0, 0, 0, -454, 806, 0, 0, 0, 0, -455, 932, 0, 0, 0, 0, -257, 932, 0, 0, 0, 0, -256, 491)
+"points": PackedVector2Array(0, 0, 0, 0, -230, 495, 0, 0, 0, 0, -230, 929, 0, 0, 0, 0, -453, 932, 0, 0, 0, 0, -454, 806, 0, 0, 0, 0, -455, 932, 0, 0, 0, 0, -230, 932, 0, 0, 0, 0, -230, 491)
 }
 point_count = 7
 
@@ -72,7 +72,7 @@ shape = SubResource("RectangleShape2D_ethtd")
 
 [node name="Guard1" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("3_ou7bs")]
 position = Vector2(896, 251)
-rotation = -0.01694
+speed = 2.8
 path_follow = NodePath("../Path1/PathFollow2D")
 action_controller = NodePath("../ActionController")
 
@@ -80,7 +80,7 @@ action_controller = NodePath("../ActionController")
 curve = SubResource("Curve2D_kfcbi")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path1"]
-position = Vector2(900, 350)
+position = Vector2(900, 450)
 rotation = 1.5708
 progress = 100.0
 rotates = false
@@ -110,7 +110,7 @@ action_controller = NodePath("../ActionController")
 curve = SubResource("Curve2D_sjck3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path3"]
-position = Vector2(-255, 495)
+position = Vector2(-230, 495)
 rotation = -0.00596414
 rotates = false
 

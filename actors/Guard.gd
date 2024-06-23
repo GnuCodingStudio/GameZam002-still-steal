@@ -2,13 +2,16 @@ extends RigidBody2D
 
 class_name Guard
 
-@export var speed: int = 5
+@export_range(0.1, 20.0) var speed: float = 5
 @export var rotation_speed: float = 10
-@onready var animated_sprite_2d = $AnimatedSprite2D
 @export var path_follow: PathFollow2D
 @export var action_controller: ActionController
 
+@onready var detection_area = %DetectionArea
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
 signal stun_guard()
+signal on_player_catch()
 
 var moving_direction: Vector2
 var facing_direction: Vector2
@@ -48,24 +51,32 @@ func _ajust_moving_orientation():
 	if isHorizontalyMoved:
 		if moving_direction.x < 0:
 			animated_sprite_2d.play("run_to_the_left")
+			detection_area.rotation_degrees = 90
 		elif moving_direction.x > 0:
 			animated_sprite_2d.play("run_to_the_right")
+			detection_area.rotation_degrees = -90
 	else:
 		if moving_direction.y < 0:
 			animated_sprite_2d.play("run_to_the_top")
+			detection_area.rotation_degrees = 180
 		elif moving_direction.y > 0:
 			animated_sprite_2d.play("run_to_the_bottom")
+			detection_area.rotation_degrees = 0
 
 
 func _ajust_facing_orientation():
 	if facing_direction.x < 0:
 		animated_sprite_2d.play("facing_left")
+		detection_area.rotation_degrees = 90
 	elif facing_direction.x > 0:
 		animated_sprite_2d.play("facing_right")
+		detection_area.rotation_degrees = -90
 	elif facing_direction.y < 0:
 		animated_sprite_2d.play("facing_top")
+		detection_area.rotation_degrees = 180
 	elif facing_direction.y > 0:
 		animated_sprite_2d.play("facing_bottom")
+		detection_area.rotation_degrees = 0
 
 
 func _on_actionnable_input_event(viewport, event, shape_idx):
@@ -80,3 +91,7 @@ func stun():
 		self.modulate = Color(0.5,0.5,0.5)
 	
 	
+func _on_detection_area_body_entered(body):
+	if state != GuardState.STUN and body is Player:
+		print("Spotted")
+		on_player_catch.emit()
