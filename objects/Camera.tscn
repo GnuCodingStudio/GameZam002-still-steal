@@ -25,7 +25,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Camera" type="Node2D"]
+[node name="Camera" type="Node2D" groups=["security cameras"]]
 script = ExtResource("1_2cpas")
 
 [node name="ActionnableArea" type="Area2D" parent="."]

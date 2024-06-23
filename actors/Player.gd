@@ -10,8 +10,10 @@ var moving_direction: Vector2
 var facing_direction: Vector2
 var disabled: bool:
 	set(value):
-		moving_direction = Vector2.ZERO
 		disabled = value
+		if value:
+			modulate.a = .5
+			moving_direction = Vector2.ZERO
 
 func _unhandled_input(event):
 	if not disabled:
