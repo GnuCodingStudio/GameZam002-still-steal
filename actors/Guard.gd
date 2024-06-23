@@ -30,7 +30,7 @@ func _physics_process(delta):
 	if path_follow != null and state == GuardState.MOVING:
 		path_follow.progress += (60 * speed * delta)
 		move_and_collide(path_follow.global_position - global_position)
-		
+
 		if last_position != null:
 			moving_direction = global_position - last_position
 			_adjust_orientation()
@@ -87,14 +87,23 @@ func _on_actionnable_input_event(viewport, event, shape_idx):
 func stun():
 	if state == GuardState.STUN:
 		return
-	
+
 	if action_controller == null or action_controller.activate():
 		state = GuardState.STUN
 		animated_sprite_2d.play("stun")
 		self.modulate = Color(0.5,0.5,0.5)
-	
-	
+
+
 func _on_detection_area_body_entered(body):
-	if state != GuardState.STUN and body is Player:
+	if state != GuardState.STUN and body is Player and _can_see(body):
 		print("Spotted")
 		on_player_catch.emit()
+
+
+## Check if guard can see the body or if there something between them
+func _can_see(body) -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(global_position, body.global_position)
+	query.exclude = [self]
+	var result = space_state.intersect_ray(query)
+	return result.collider == body
