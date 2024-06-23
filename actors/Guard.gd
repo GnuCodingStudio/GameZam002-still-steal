@@ -85,6 +85,9 @@ func _on_actionnable_input_event(viewport, event, shape_idx):
 			stun()
 
 func stun():
+	if state == GuardState.STUN:
+		return
+	
 	if action_controller == null or action_controller.activate():
 		state = GuardState.STUN
 		animated_sprite_2d.play("stun")
