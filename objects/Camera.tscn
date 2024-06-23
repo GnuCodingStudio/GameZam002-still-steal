@@ -67,10 +67,12 @@ animation = &"on"
 [node name="AudioDown" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_4f0nm")
+volume_db = 10.0
 
 [node name="AudioUp" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_5el0t")
+volume_db = 10.0
 
 [connection signal="input_event" from="ActionnableArea" to="." method="_on_actionnable_input_event"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_body_entered"]
