@@ -119,3 +119,7 @@ position = Vector2(696, -200)
 unique_name_in_owner = true
 position = Vector2(68, 960)
 rotation = 2.61799
+
+[connection signal="on_player_catch" from="Camera1" to="." method="_on_player_catch"]
+[connection signal="on_player_catch" from="Camera2" to="." method="_on_player_catch"]
+[connection signal="on_player_catch" from="Camera3" to="." method="_on_player_catch"]
