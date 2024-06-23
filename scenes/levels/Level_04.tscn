@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7s1r2dws8hvo"]
+[gd_scene load_steps=12 format=3 uid="uid://b7s1r2dws8hvo"]
 
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_cwl6b"]
 [ext_resource type="Script" path="res://scenes/levels/Level_04.gd" id="1_f56m7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="3_ou7bs"]
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="5_ymhbm"]
 [ext_resource type="PackedScene" uid="uid://b2xmxsw5evod0" path="res://objects/WoodenChest.tscn" id="6_fjc6a"]
+[ext_resource type="PackedScene" uid="uid://kr66s3n8pjx" path="res://controller/ActionController.tscn" id="6_j1qnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
 size = Vector2(20.4, 51)
@@ -49,6 +50,9 @@ layer_3/name = "chest"
 layer_3/tile_data = PackedInt32Array(-131071, 65536, 8, -131067, 65536, 8, 458752, 65536, 8, 196611, 65539, 2)
 layer_4/name = "floor_deco"
 layer_4/tile_data = PackedInt32Array(327689, 851968, 7, -65533, 655360, 7, -1, 655360, 7, -65529, 655360, 7, 131079, 786432, 1, 131078, 786432, 1, 65538, 1638406, 4, 131068, 1638406, 4, 393215, 851968, 1610612743, 458761, 851968, 805306375, 196611, 720896, 7, 131069, 1638406, 4, 131070, 1638406, 4, 131071, 1638406, 4, 65536, 1638406, 4, 65537, 1638406, 4, 262143, 1638406, 4, 327679, 1638406, 4, 65540, 1638406, 4, 65541, 1638406, 4, 65542, 1638406, 4, 65543, 1638406, 4, 524283, 851968, 1342177287, 65531, 851968, 805306375, -65541, 851968, 1610612743, 131067, 1310726, 7, 196603, 1310726, 7, 262139, 1310726, 7, 327675, 1310726, 7, 393211, 1310726, 7, 458747, 1310726, 7, -5, 720896, 1610612736)
+
+[node name="ActionController" parent="." instance=ExtResource("6_j1qnq")]
+max_actions = 4
 
 [node name="StartPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -107,19 +111,22 @@ position = Vector2(-255, 495)
 rotation = -0.00596414
 rotates = false
 
-[node name="Camera1" parent="." instance=ExtResource("5_ymhbm")]
+[node name="Camera1" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("5_ymhbm")]
 unique_name_in_owner = true
 position = Vector2(192, -195)
 rotation = 1.5708
+action_controller = NodePath("../ActionController")
 
-[node name="Camera2" parent="." instance=ExtResource("5_ymhbm")]
+[node name="Camera2" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("5_ymhbm")]
 unique_name_in_owner = true
 position = Vector2(696, -200)
+action_controller = NodePath("../ActionController")
 
-[node name="Camera3" parent="." instance=ExtResource("5_ymhbm")]
+[node name="Camera3" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("5_ymhbm")]
 unique_name_in_owner = true
 position = Vector2(68, 960)
 rotation = 2.61799
+action_controller = NodePath("../ActionController")
 
 [node name="Chest1" parent="." instance=ExtResource("6_fjc6a")]
 position = Vector2(215, 552)

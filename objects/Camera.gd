@@ -5,7 +5,9 @@ class_name Camera
 @onready var detection_area = %DetectionArea
 @onready var animated_sprite = %AnimatedSprite
 @onready var detection_shape = %DetectionShape
+
 @export var deactivation_camera_timer = 2
+@export var action_controller: ActionController
 
 signal on_player_catch()
 
@@ -13,20 +15,21 @@ signal on_player_catch()
 func _on_body_entered(body):
 	if body is Player:
 		on_player_catch.emit()
-		
-		
+
+
 func activateCamera():
 	animated_sprite.play("on")
 	detection_shape.disabled = false
 	detection_area.visible = true
-	
-	
+
+
 func deactivateCamera():
-	animated_sprite.play("off")
-	detection_shape.disabled = true
-	detection_area.visible = false
-	await get_tree().create_timer(deactivation_camera_timer).timeout
-	activateCamera()
+	if action_controller == null or action_controller.activate():
+		animated_sprite.play("off")
+		detection_shape.disabled = true
+		detection_area.visible = false
+		await get_tree().create_timer(deactivation_camera_timer).timeout
+		activateCamera()
 
 
 func _on_actionnable_input_event(viewport, event, shape_idx):

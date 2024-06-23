@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbldg58i11kmh"]
+[gd_scene load_steps=7 format=3 uid="uid://bbldg58i11kmh"]
 
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_o4of8"]
 [ext_resource type="Script" path="res://scenes/levels/Level_03.gd" id="1_q7jsi"]
 [ext_resource type="PackedScene" uid="uid://b7s1r2dws8hvo" path="res://scenes/levels/Level_04.tscn" id="2_1k684"]
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="2_ujtuc"]
+[ext_resource type="PackedScene" uid="uid://kr66s3n8pjx" path="res://controller/ActionController.tscn" id="5_5byvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
 size = Vector2(20.4, 51)
@@ -44,8 +45,12 @@ position = Vector2(1290, -1.78814e-07)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_ethtd")
 
-[node name="Camera" parent="." instance=ExtResource("2_ujtuc")]
+[node name="Camera" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("2_ujtuc")]
 unique_name_in_owner = true
 position = Vector2(-208, -171)
+action_controller = NodePath("../ActionController")
+
+[node name="ActionController" parent="." instance=ExtResource("5_5byvo")]
+max_actions = 50
 
 [connection signal="body_entered" from="FinishArea" to="." method="_on_body_entered"]
