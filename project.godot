@@ -27,6 +27,7 @@ shapes/collision/shape_color=Color(1, 1, 1, 0.42)
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [input]
@@ -71,3 +72,4 @@ activate={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
