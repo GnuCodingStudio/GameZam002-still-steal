@@ -14,6 +14,7 @@ script = ExtResource("1_2bn3g")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
 next_level = ExtResource("2_oofps")
+intro = ExtResource("5_l561m")
 
 [node name="Third" type="TileMap" parent="."]
 position = Vector2(0, -3)

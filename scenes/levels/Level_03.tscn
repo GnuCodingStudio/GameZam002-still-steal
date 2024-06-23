@@ -9,11 +9,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
 size = Vector2(20.4, 51)
 
-[node name="Level035" type="Node2D" node_paths=PackedStringArray("start_point", "finish_area")]
+[node name="Level03" type="Node2D" node_paths=PackedStringArray("start_point", "finish_area")]
 script = ExtResource("1_q7jsi")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
 next_level = ExtResource("2_wrsvs")
+intro = ExtResource("6_w6k2i")
 
 [node name="Third" type="TileMap" parent="."]
 position = Vector2(0, -3)

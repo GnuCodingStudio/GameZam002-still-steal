@@ -13,6 +13,7 @@ script = ExtResource("1_0k48h")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
 next_level = ExtResource("2_mbqfm")
+intro = ExtResource("4_d7240")
 
 [node name="First" type="TileMap" parent="."]
 position = Vector2(0, -3)
@@ -43,7 +44,3 @@ modulate = Color(0, 1, 0, 1)
 position = Vector2(1290, -1.78814e-07)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_c5dw7")
-
-[node name="Intro" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_d7240")
