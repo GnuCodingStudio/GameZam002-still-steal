@@ -20,6 +20,11 @@ func _ready():
 	_init_chests()
 	_init_cameras()
 	_init_guards()
+	_init_level()
+
+
+func _init_level():
+	pass
 
 
 func _init_chests():

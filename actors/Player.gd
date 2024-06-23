@@ -14,6 +14,8 @@ var disabled: bool:
 		if value:
 			modulate.a = .5
 			moving_direction = Vector2.ZERO
+		else:
+			modulate.a = 1
 
 func _unhandled_input(event):
 	if not disabled:
