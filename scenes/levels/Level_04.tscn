@@ -71,6 +71,12 @@ position = Vector2(1290, -1.78814e-07)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_ethtd")
 
+[node name="Chest1" parent="." instance=ExtResource("6_fjc6a")]
+position = Vector2(215, 552)
+
+[node name="Chest2" parent="." instance=ExtResource("6_fjc6a")]
+position = Vector2(-226, 458)
+
 [node name="Guard1" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("3_ou7bs")]
 position = Vector2(896, 251)
 speed = 2.8
@@ -115,6 +121,11 @@ position = Vector2(-230, 495)
 rotation = -0.00596414
 rotates = false
 
+[node name="Guard4" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("3_ou7bs")]
+position = Vector2(449, 428)
+rotation = 3.14159
+action_controller = NodePath("../ActionController")
+
 [node name="Camera1" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("5_ymhbm")]
 unique_name_in_owner = true
 position = Vector2(192, -195)
@@ -130,17 +141,6 @@ action_controller = NodePath("../ActionController")
 unique_name_in_owner = true
 position = Vector2(68, 960)
 rotation = 2.61799
-action_controller = NodePath("../ActionController")
-
-[node name="Chest1" parent="." instance=ExtResource("6_fjc6a")]
-position = Vector2(215, 552)
-
-[node name="Chest2" parent="." instance=ExtResource("6_fjc6a")]
-position = Vector2(-226, 458)
-
-[node name="Guard4" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("3_ou7bs")]
-position = Vector2(449, 428)
-rotation = 3.14159
 action_controller = NodePath("../ActionController")
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]
