@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7s1r2dws8hvo"]
+[gd_scene load_steps=8 format=3 uid="uid://b7s1r2dws8hvo"]
 
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_cwl6b"]
 [ext_resource type="Script" path="res://scenes/levels/Level_04.gd" id="1_f56m7"]
@@ -13,6 +13,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 900, 250, 0, 0, 0, 0, 900, 720, 0, 0, 0, 0, 900, 250)
 }
 point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_5jl6r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -443, 286, 0, 0, 0, 0, 60, 283, 0, 0, 0, 0, 69, 673, 0, 0, 0, 0, 60, 283, 0, 0, 0, 0, -442, 286, 0, 0, 0, 0, -443, 286)
+}
+point_count = 6
 
 [node name="Level04" type="Node2D" node_paths=PackedStringArray("start_point", "finish_area")]
 script = ExtResource("1_f56m7")
@@ -56,12 +62,26 @@ shape = SubResource("RectangleShape2D_ethtd")
 curve = SubResource("Curve2D_kfcbi")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(900, 349.998)
+position = Vector2(900, 350)
 rotation = 1.5708
 progress = 100.0
 rotates = false
+cubic_interp = false
 
 [node name="Guard" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path_follow") instance=ExtResource("3_ou7bs")]
-position = Vector2(-0.979906, 0.321964)
+position = Vector2(-99, 4.00037)
 rotation = -1.58774
 path_follow = NodePath("..")
+
+[node name="Guard" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("3_ou7bs")]
+position = Vector2(-443, 286)
+rotation = -0.00596414
+path_follow = NodePath("../Path2D2/PathFollow2D")
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_5jl6r")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(-443, 286)
+rotation = -0.00596414
+rotates = false

@@ -7,20 +7,20 @@ class_name Guard
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @export var path_follow: PathFollow2D
 
+
 var moving_direction: Vector2
 var facing_direction: Vector2
 var last_position: Vector2
 
+
 func _ready():
 	path_follow.progress_ratio = randf()
-	
-func _unhandled_input(event):
-	if moving_direction != Vector2.ZERO:
-		facing_direction = moving_direction
 
 
 func _physics_process(delta):
-	path_follow.set_progress(path_follow.progress + 60 * speed * delta)
+	path_follow.progress += (60 * speed * delta)
+	move_and_collide(path_follow.global_position - global_position)
+	
 	if last_position != null:
 		moving_direction = global_position - last_position
 		_adjust_orientation()
@@ -32,6 +32,7 @@ func _adjust_orientation():
 		_ajust_moving_orientation()
 	else:
 		_ajust_facing_orientation()
+
 
 func _ajust_moving_orientation():
 	var x_direction = moving_direction.x
@@ -47,7 +48,8 @@ func _ajust_moving_orientation():
 			animated_sprite_2d.play("run_to_the_top")
 		elif moving_direction.y > 0:
 			animated_sprite_2d.play("run_to_the_bottom")
-		
+
+
 func _ajust_facing_orientation():
 	if facing_direction.x < 0:
 		animated_sprite_2d.play("facing_left")

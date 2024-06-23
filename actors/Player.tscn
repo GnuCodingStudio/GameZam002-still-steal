@@ -175,8 +175,9 @@ size = Vector2(10, 15)
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 16
-collision_mask = 47
+collision_mask = 39
 gravity_scale = 1.66533e-16
+lock_rotation = true
 script = ExtResource("1_gr5pk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
