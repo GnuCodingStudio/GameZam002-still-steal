@@ -366,7 +366,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Guard" type="RigidBody2D"]
+[node name="Guard" type="RigidBody2D" groups=["guards"]]
 collision_layer = 8
 collision_mask = 8
 gravity_scale = 1.66533e-16
@@ -392,8 +392,11 @@ animation = &"facing_bottom"
 
 [node name="DetectionArea" type="Area2D" parent="."]
 unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea"]
 polygon = PackedVector2Array(-50, 2.08165e-12, 50, 2.08165e-12, 130, 180, -130, 180)
 
 [connection signal="input_event" from="ClickableArea" to="." method="_on_actionnable_input_event"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

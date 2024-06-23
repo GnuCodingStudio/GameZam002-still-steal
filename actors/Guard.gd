@@ -11,6 +11,7 @@ class_name Guard
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 signal stun_guard()
+signal on_player_catch()
 
 var moving_direction: Vector2
 var facing_direction: Vector2
@@ -90,3 +91,7 @@ func stun():
 		self.modulate = Color(0.5,0.5,0.5)
 	
 	
+func _on_detection_area_body_entered(body):
+	if state != GuardState.STUN and body is Player:
+		print("Spotted")
+		on_player_catch.emit()

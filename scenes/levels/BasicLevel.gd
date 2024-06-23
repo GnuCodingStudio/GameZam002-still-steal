@@ -19,6 +19,7 @@ func _ready():
 	
 	_init_chests()
 	_init_cameras()
+	_init_guards()
 
 
 func _init_chests():
@@ -32,6 +33,12 @@ func _init_cameras():
 	var cameras = get_tree().get_nodes_in_group("security cameras")
 	for camera in cameras:
 		camera.on_player_catch.connect(_on_player_caught_by_camera)
+
+
+func _init_guards():
+	var guards = get_tree().get_nodes_in_group("guards")
+	for guard in guards:
+		guard.on_player_catch.connect(_on_player_caught_by_guard)
 
 
 func _finish_entered(body):
@@ -50,6 +57,11 @@ func is_level_completed() -> bool:
 
 
 func _on_player_caught_by_camera():
+	await get_tree().create_timer(0.2).timeout
+	_you_failed()
+
+
+func _on_player_caught_by_guard():
 	await get_tree().create_timer(0.2).timeout
 	_you_failed()
 
