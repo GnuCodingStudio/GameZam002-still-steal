@@ -26,6 +26,8 @@ layer_2/name = "player"
 layer_2/tile_data = PackedInt32Array()
 layer_3/name = "chest"
 layer_3/tile_data = PackedInt32Array()
+layer_4/name = "floor_deco"
+layer_4/tile_data = PackedInt32Array(-4, 720896, 1610612736, 65532, 720896, 1610612736)
 
 [node name="StartPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -46,11 +48,5 @@ shape = SubResource("RectangleShape2D_ethtd")
 unique_name_in_owner = true
 position = Vector2(-208, -171)
 
-[node name="Camera2" parent="." instance=ExtResource("2_ujtuc")]
-unique_name_in_owner = true
-position = Vector2(940, -171)
-rotation = 1.5708
-
 [connection signal="body_entered" from="FinishArea" to="." method="_on_body_entered"]
 [connection signal="on_player_catch" from="Camera" to="." method="_on_player_catch"]
-[connection signal="on_player_catch" from="Camera2" to="." method="_on_player_catch"]
