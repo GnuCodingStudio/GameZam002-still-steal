@@ -7,24 +7,32 @@ class_name Guard
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @export var path_follow: PathFollow2D
 
+signal stun_guard()
 
 var moving_direction: Vector2
 var facing_direction: Vector2
 var last_position: Vector2
 
+var state: GuardState = GuardState.MOVING
+
+
+enum GuardState { STUN, MOVING }
 
 func _ready():
-	path_follow.progress_ratio = randf()
+	#Static guard has not path follow
+	if(path_follow != null):
+		path_follow.progress_ratio = randf()
 
 
 func _physics_process(delta):
-	path_follow.progress += (60 * speed * delta)
-	move_and_collide(path_follow.global_position - global_position)
-	
-	if last_position != null:
-		moving_direction = global_position - last_position
-		_adjust_orientation()
-	last_position = global_position
+	if path_follow != null and state == GuardState.MOVING:
+		path_follow.progress += (60 * speed * delta)
+		move_and_collide(path_follow.global_position - global_position)
+		
+		if last_position != null:
+			moving_direction = global_position - last_position
+			_adjust_orientation()
+		last_position = global_position
 
 
 func _adjust_orientation():
@@ -59,3 +67,16 @@ func _ajust_facing_orientation():
 		animated_sprite_2d.play("facing_top")
 	elif facing_direction.y > 0:
 		animated_sprite_2d.play("facing_bottom")
+
+
+func _on_actionnable_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			stun()
+
+func stun():
+	state = GuardState.STUN
+	animated_sprite_2d.play("stun")
+	self.modulate = Color(0.5,0.5,0.5)
+	
+	

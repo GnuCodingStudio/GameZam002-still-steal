@@ -127,6 +127,9 @@ position = Vector2(215, 552)
 [node name="Chest2" parent="." instance=ExtResource("6_fjc6a")]
 position = Vector2(-226, 458)
 
+[node name="Guard4" parent="." instance=ExtResource("3_ou7bs")]
+position = Vector2(449, 428)
+
 [connection signal="on_player_catch" from="Camera1" to="." method="_on_player_catch"]
 [connection signal="on_player_catch" from="Camera2" to="." method="_on_player_catch"]
 [connection signal="on_player_catch" from="Camera3" to="." method="_on_player_catch"]
