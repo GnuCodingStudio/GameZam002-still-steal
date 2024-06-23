@@ -72,9 +72,17 @@ func _on_player_caught_by_guard():
 
 
 func _you_failed():
+	var audioPlayer = AudioStreamPlayer.new()
+	add_child(audioPlayer)
+	audioPlayer.stream = load("res://assets/audio/OhOh.ogg")
+	audioPlayer.volume_db = -5
+	audioPlayer.play()
+	
 	player.disabled = true
 	await get_tree().create_timer(0.3).timeout
 	const youFailedScene = preload("res://scenes/YouFailed.tscn")
 	add_child(youFailedScene.instantiate())
+	
 	await get_tree().create_timer(2).timeout
+	audioPlayer.queue_free()
 	get_tree().reload_current_scene()
