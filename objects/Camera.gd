@@ -14,7 +14,7 @@ signal on_player_catch()
 
 
 func _on_body_entered(body):
-	if body is Player:
+	if body is Player and _can_see(body):
 		on_player_catch.emit()
 
 
@@ -39,3 +39,12 @@ func _on_actionnable_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			deactivateCamera()
+
+
+## Check if guard can see the body or if there something between them
+func _can_see(body) -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(global_position, body.global_position)
+	query.exclude = [self]
+	var result = space_state.intersect_ray(query)
+	return result.collider == body
