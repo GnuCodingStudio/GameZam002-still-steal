@@ -9,14 +9,25 @@ class_name Camera
 @onready var audio_up = %AudioUp
 @export var deactivation_camera_timer = 2
 @export var action_controller: ActionController
+@onready var rotate_left_to_right = %rotate_left_to_right
+@onready var rotate_right_to_left = %rotate_right_to_left
 
 signal on_player_catch()
 
+func _ready():
+	if round(self.rotation_degrees) == 90:
+		rotate_left_to_right.play("rotate")
+		
+	if round(self.rotation_degrees) == 0:
+		rotate_right_to_left.play("rotate")
+
+func _physics_process(delta):
+	pass
+	
 
 func _on_body_entered(body):
 	if body is Player and _can_see(body):
 		on_player_catch.emit()
-
 
 func activateCamera():
 	animated_sprite.play("on")
