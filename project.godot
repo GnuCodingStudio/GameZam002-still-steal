@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="StillSteal"
-run/main_scene="res://scenes/levels/Level_01.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -29,6 +29,11 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom="res://assets/resources/MainTheme.tres"
+theme/custom_font="res://assets/fonts/Motion Control Bold Italic.otf"
 
 [input]
 
