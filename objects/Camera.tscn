@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://7oyofxooer87"]
+[gd_scene load_steps=9 format=3 uid="uid://7oyofxooer87"]
 
 [ext_resource type="Script" path="res://objects/Camera.gd" id="1_2cpas"]
 [ext_resource type="Texture2D" uid="uid://dhgxstfex3l5p" path="res://assets/camera/camera-on.png" id="1_jbi7c"]
@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://boo5037p0nd4f" path="res://assets/sons/Camera up ! (mp3cut.net).mp3" id="5_5el0t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cot1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o81d5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_php06"]
 animations = [{
@@ -46,6 +48,11 @@ collision_mask = 16
 unique_name_in_owner = true
 self_modulate = Color(0.988235, 1, 1, 1)
 show_behind_parent = true
+polygon = PackedVector2Array(0, 0, 300, 2.08165e-12, 285.317, 92.705, 242.705, 176.336, 176.336, 242.705, 92.705, 285.317, 2.08165e-12, 300)
+
+[node name="Polygon2D" type="Polygon2D" parent="DetectionArea/DetectionShape"]
+color = Color(1, 0.407843, 0.407843, 0.196078)
+texture = SubResource("CanvasTexture_o81d5")
 polygon = PackedVector2Array(0, 0, 300, 2.08165e-12, 285.317, 92.705, 242.705, 176.336, 176.336, 242.705, 92.705, 285.317, 2.08165e-12, 300)
 
 [node name="YRayon" type="ColorRect" parent="DetectionArea"]
