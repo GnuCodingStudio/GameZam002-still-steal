@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://olp45guapj4w"]
+
+[ext_resource type="Texture2D" uid="uid://bmidppiw0ms0x" path="res://assets/images/menu-background.png" id="1_58esq"]
+[ext_resource type="Texture2D" uid="uid://bl00fkbep7git" path="res://assets/images/logo.png" id="2_mqvj0"]
+[ext_resource type="Script" path="res://scripts/StartGameButton.gd" id="3_3rj1l"]
+[ext_resource type="AudioStream" uid="uid://dqgkeqtoc858h" path="res://assets/audio/MainMenu.mp3" id="4_d5u7b"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_58esq")
+
+[node name="Logo" type="TextureRect" parent="."]
+offset_left = -207.0
+offset_top = 161.0
+offset_right = 1056.0
+offset_bottom = 743.0
+rotation = -0.292038
+texture = ExtResource("2_mqvj0")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 385.0
+offset_top = 676.0
+offset_right = 657.0
+offset_bottom = 794.0
+text = "   Start   "
+script = ExtResource("3_3rj1l")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_d5u7b")
+volume_db = 10.0
+autoplay = true
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
