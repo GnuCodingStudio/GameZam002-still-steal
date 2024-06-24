@@ -49,6 +49,7 @@ shape = SubResource("RectangleShape2D_ethtd")
 [node name="Camera" parent="." instance=ExtResource("2_ujtuc")]
 unique_name_in_owner = true
 position = Vector2(-208, -171)
+rotation = -0.0872665
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
