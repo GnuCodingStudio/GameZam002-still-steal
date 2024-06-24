@@ -398,7 +398,8 @@ collision_mask = 16
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea"]
 polygon = PackedVector2Array(-50, 2.08165e-12, 50, 2.08165e-12, 130, 180, -130, 180)
 
-[node name="Polygon2D" type="Polygon2D" parent="DetectionArea/CollisionPolygon2D"]
+[node name="VisibleArea" type="Polygon2D" parent="DetectionArea/CollisionPolygon2D"]
+unique_name_in_owner = true
 color = Color(1, 0.407843, 0.407843, 0.196078)
 polygon = PackedVector2Array(-50, 2.08165e-12, 50, 2.08165e-12, 130, 180, -130, 180)
 

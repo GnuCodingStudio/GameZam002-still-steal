@@ -9,6 +9,7 @@ class_name Guard
 
 @onready var detection_area = %DetectionArea
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var visible_area = %VisibleArea
 
 signal stun_guard()
 signal on_player_catch()
@@ -92,6 +93,7 @@ func stun():
 		state = GuardState.STUN
 		animated_sprite_2d.play("stun")
 		self.modulate = Color(0.5,0.5,0.5)
+		visible_area.visible = false
 
 
 func _on_detection_area_body_entered(body):
