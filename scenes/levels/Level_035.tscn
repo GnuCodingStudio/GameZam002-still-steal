@@ -48,7 +48,7 @@ shape = SubResource("RectangleShape2D_ethtd")
 
 [node name="Guard" parent="." instance=ExtResource("5_15jxy")]
 position = Vector2(1180, -4)
-rotation = 1.5708
+facing_direction = 3
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

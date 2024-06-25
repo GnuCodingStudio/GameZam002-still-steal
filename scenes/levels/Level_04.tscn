@@ -124,8 +124,8 @@ rotates = false
 
 [node name="Guard4" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("3_ou7bs")]
 position = Vector2(449, 428)
-rotation = 3.14159
 action_controller = NodePath("../ActionController")
+facing_direction = 0
 
 [node name="Camera1" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("5_ymhbm")]
 unique_name_in_owner = true

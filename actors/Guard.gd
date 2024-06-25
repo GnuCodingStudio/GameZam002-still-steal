@@ -6,6 +6,8 @@ class_name Guard
 @export var rotation_speed: float = 10
 @export var path_follow: PathFollow2D
 @export var action_controller: ActionController
+@export var facing_direction: Direction = Direction.BOTTOM
+
 
 @onready var detection_area = %DetectionArea
 @onready var animated_sprite_2d = $AnimatedSprite2D
@@ -15,16 +17,17 @@ signal stun_guard()
 signal on_player_catch()
 
 var moving_direction: Vector2
-var facing_direction: Vector2
 var last_position: Vector2
 var state: GuardState = GuardState.MOVING
 
 enum GuardState { STUN, MOVING }
+enum Direction { TOP, RIGHT, BOTTOM, LEFT }
 
 func _ready():
 	#Static guard has not path follow
 	if(path_follow != null):
 		path_follow.progress_ratio = randf()
+	_ajust_facing_orientation(facing_direction)
 
 
 func _physics_process(delta):
@@ -34,6 +37,8 @@ func _physics_process(delta):
 
 		if last_position != null:
 			moving_direction = global_position - last_position
+			if moving_direction.length() > 0:
+				facing_direction = _vector_to_direction(moving_direction)
 			_adjust_orientation()
 		last_position = global_position
 
@@ -42,7 +47,7 @@ func _adjust_orientation():
 	if moving_direction != Vector2.ZERO:
 		_ajust_moving_orientation()
 	else:
-		_ajust_facing_orientation()
+		_ajust_facing_orientation(facing_direction)
 
 
 func _ajust_moving_orientation():
@@ -65,20 +70,33 @@ func _ajust_moving_orientation():
 			detection_area.rotation_degrees = 0
 
 
-func _ajust_facing_orientation():
-	if facing_direction.x < 0:
-		animated_sprite_2d.play("facing_left")
-		detection_area.rotation_degrees = 90
-	elif facing_direction.x > 0:
-		animated_sprite_2d.play("facing_right")
-		detection_area.rotation_degrees = -90
-	elif facing_direction.y < 0:
-		animated_sprite_2d.play("facing_top")
-		detection_area.rotation_degrees = 180
-	elif facing_direction.y > 0:
-		animated_sprite_2d.play("facing_bottom")
-		detection_area.rotation_degrees = 0
+func _ajust_facing_orientation(direction: Direction):
+	match direction:
+		Direction.TOP:
+			animated_sprite_2d.play("facing_top")
+			detection_area.rotation_degrees = 180
+		Direction.RIGHT:
+			animated_sprite_2d.play("facing_right")
+			detection_area.rotation_degrees = -90
+		Direction.BOTTOM:
+			animated_sprite_2d.play("facing_bottom")
+			detection_area.rotation_degrees = 0
+		Direction.LEFT:
+			animated_sprite_2d.play("facing_left")
+			detection_area.rotation_degrees = 90
 
+
+func _vector_to_direction(vector: Vector2) -> Direction:
+	if vector.x < 0:
+		return Direction.LEFT
+	elif vector.x > 0:
+		return Direction.RIGHT
+	elif vector.y < 0:
+		return Direction.TOP
+	elif vector.y > 0:
+		return Direction.BOTTOM
+	else:
+		return Direction.BOTTOM
 
 func _on_actionnable_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
