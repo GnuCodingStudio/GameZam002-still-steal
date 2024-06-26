@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cnhc0popkfo46"]
 
-[node name="TheEnd" type="Control"]
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TheEnd" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -8,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="TheEnd"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CenterContainer"]
+[node name="Label" type="Label" parent="TheEnd/CenterContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "You failed!"
