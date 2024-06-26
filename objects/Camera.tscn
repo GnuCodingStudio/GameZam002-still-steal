@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://7oyofxooer87"]
+[gd_scene load_steps=9 format=3 uid="uid://7oyofxooer87"]
 
 [ext_resource type="Script" path="res://objects/Camera.gd" id="1_2cpas"]
 [ext_resource type="Texture2D" uid="uid://dhgxstfex3l5p" path="res://assets/camera/camera-on.png" id="1_jbi7c"]
@@ -28,50 +28,6 @@ animations = [{
 "name": &"on",
 "speed": 5.0
 }]
-
-[sub_resource type="Animation" id="Animation_m0775"]
-resource_name = "rotate"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [1.5708, 3.48787e-16, 1.5708]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gusp8"]
-_data = {
-"rotate": SubResource("Animation_m0775")
-}
-
-[sub_resource type="Animation" id="Animation_ppigx"]
-resource_name = "rotate"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [3.48787e-16, 1.5708, 3.48787e-16]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jeewq"]
-_data = {
-"rotate": SubResource("Animation_ppigx")
-}
 
 [node name="Camera" type="Node2D" groups=["security cameras"]]
 script = ExtResource("1_2cpas")
@@ -124,18 +80,6 @@ volume_db = 10.0
 unique_name_in_owner = true
 stream = ExtResource("5_5el0t")
 volume_db = 10.0
-
-[node name="rotate_left_to_right" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_gusp8")
-}
-
-[node name="rotate_right_to_left" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_jeewq")
-}
 
 [connection signal="input_event" from="ActionnableArea" to="." method="_on_actionnable_input_event"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_body_entered"]

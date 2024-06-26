@@ -132,11 +132,15 @@ unique_name_in_owner = true
 position = Vector2(192, -195)
 rotation = 1.5708
 action_controller = NodePath("../ActionController")
+rotation_enabled = true
+rotation_start_angle = 90.0
+rotation_end_angle = 2.08165e-12
 
 [node name="Camera2" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("5_ymhbm")]
 unique_name_in_owner = true
 position = Vector2(696, -200)
 action_controller = NodePath("../ActionController")
+rotation_enabled = true
 
 [node name="Camera3" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("5_ymhbm")]
 unique_name_in_owner = true

@@ -7,19 +7,44 @@ class_name Camera
 @onready var detection_shape = %DetectionShape
 @onready var audio_down = %AudioDown
 @onready var audio_up = %AudioUp
+
 @export var deactivation_camera_timer = 2
 @export var action_controller: ActionController
-@onready var rotate_left_to_right = %rotate_left_to_right
-@onready var rotate_right_to_left = %rotate_right_to_left
+
+@export_group("Rotation", "rotation_")
+@export var rotation_enabled: bool = false
+@export var rotation_start_angle: float = 0.0
+@export var rotation_end_angle: float = 90.0
+@export var rotation_seconds: float = 3.0
+
+var animPlayer = AnimationPlayer
 
 signal on_player_catch()
 
 func _ready():
-	if round(self.rotation_degrees) == 90:
-		rotate_left_to_right.play("rotate")
-		
-	if round(self.rotation_degrees) == 0:
-		rotate_right_to_left.play("rotate")
+	if rotation_enabled:
+		animPlayer = _create_animation_player()
+		animPlayer.play("global/rotate")
+
+
+func _create_animation_player() -> AnimationPlayer:
+	var animPlayer = AnimationPlayer.new()
+	add_child(animPlayer)
+
+	var animLibrary = AnimationLibrary.new()
+	animPlayer.add_animation_library("global", animLibrary)
+
+	var roty = Animation.new()
+	animLibrary.add_animation("rotate", roty)
+
+	var track_index = roty.add_track(Animation.TYPE_VALUE)
+	roty.track_set_path(track_index, ".:rotation_degrees")
+	roty.track_insert_key(track_index, 0.0, rotation_start_angle)
+	roty.track_insert_key(track_index, rotation_seconds / 2.0, rotation_end_angle)
+	roty.length = rotation_seconds / 2.0
+	roty.loop_mode = Animation.LOOP_PINGPONG
+	
+	return animPlayer
 
 func _physics_process(delta):
 	pass
