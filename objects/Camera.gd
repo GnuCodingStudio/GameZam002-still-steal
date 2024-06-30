@@ -18,6 +18,7 @@ class_name Camera
 @export var rotation_seconds: float = 3.0
 
 var animPlayer = AnimationPlayer
+var _scanning: bool = true
 
 signal on_player_catch()
 
@@ -43,32 +44,33 @@ func _create_animation_player() -> AnimationPlayer:
 	roty.track_insert_key(track_index, rotation_seconds / 2.0, rotation_end_angle)
 	roty.length = rotation_seconds / 2.0
 	roty.loop_mode = Animation.LOOP_PINGPONG
-	
+
 	return animPlayer
 
-func _physics_process(delta):
-	pass
-	
 
 func _on_body_entered(body):
 	if body is Player and _can_see(body):
 		on_player_catch.emit()
 
 func activateCamera():
-	animated_sprite.play("on")
-	audio_on.play()
-	detection_shape.disabled = false
-	detection_area.visible = true
+	if not _scanning:
+		_scanning = true
+		animated_sprite.play("on")
+		audio_on.play()
+		detection_shape.disabled = false
+		detection_area.visible = true
 
 
 func deactivateCamera():
-	if action_controller == null or action_controller.activate():
-		animated_sprite.play("off")
-		audio_off.play()
-		detection_shape.disabled = true
-		detection_area.visible = false
-		await get_tree().create_timer(deactivation_camera_timer).timeout
-		activateCamera()
+	if _scanning:
+		if action_controller == null or action_controller.activate():
+			_scanning = false
+			animated_sprite.play("off")
+			audio_off.play()
+			detection_shape.disabled = true
+			detection_area.visible = false
+			await get_tree().create_timer(deactivation_camera_timer).timeout
+			activateCamera()
 
 
 func _on_actionnable_input_event(viewport, event, shape_idx):
