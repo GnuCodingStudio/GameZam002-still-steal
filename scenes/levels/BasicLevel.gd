@@ -9,7 +9,7 @@ class_name BasicLevel
 var player: Player
 var _chests_to_open = 0
 
-const ohoh = preload("res://assets/audio/OhOh.ogg")
+const ohoh = preload("res://assets/audio/sfx/oh-oh.ogg")
 
 func _ready():
 	var playerScene = preload("res://actors/Player.tscn")

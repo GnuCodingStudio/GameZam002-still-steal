@@ -5,8 +5,8 @@ class_name Camera
 @onready var detection_area = %DetectionArea
 @onready var animated_sprite = %AnimatedSprite
 @onready var detection_shape = %DetectionShape
-@onready var audio_down = %AudioDown
-@onready var audio_up = %AudioUp
+@onready var audio_off = %AudioOff
+@onready var audio_on = %AudioOn
 
 @export var deactivation_camera_timer = 2
 @export var action_controller: ActionController
@@ -56,7 +56,7 @@ func _on_body_entered(body):
 
 func activateCamera():
 	animated_sprite.play("on")
-	audio_up.play()
+	audio_on.play()
 	detection_shape.disabled = false
 	detection_area.visible = true
 
@@ -64,7 +64,7 @@ func activateCamera():
 func deactivateCamera():
 	if action_controller == null or action_controller.activate():
 		animated_sprite.play("off")
-		audio_down.play()
+		audio_off.play()
 		detection_shape.disabled = true
 		detection_area.visible = false
 		await get_tree().create_timer(deactivation_camera_timer).timeout

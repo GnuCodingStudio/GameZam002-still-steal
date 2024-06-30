@@ -2,9 +2,9 @@
 
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_o4of8"]
 [ext_resource type="Script" path="res://scenes/levels/Level_03.gd" id="1_q7jsi"]
+[ext_resource type="PackedScene" uid="uid://bnip4dw2t0cox" path="res://scenes/levels/Level_04.tscn" id="2_6cbtn"]
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="2_ujtuc"]
-[ext_resource type="PackedScene" uid="uid://bnip4dw2t0cox" path="res://scenes/levels/Level_05.tscn" id="2_wrsvs"]
-[ext_resource type="AudioStream" uid="uid://7g66v6wvkn0w" path="res://assets/audio/Level03.ogg" id="6_w6k2i"]
+[ext_resource type="AudioStream" uid="uid://7g66v6wvkn0w" path="res://assets/audio/intro/Level03.ogg" id="3_82o8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
 size = Vector2(20.4, 51)
@@ -13,8 +13,8 @@ size = Vector2(20.4, 51)
 script = ExtResource("1_q7jsi")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
-next_level = ExtResource("2_wrsvs")
-intro = ExtResource("6_w6k2i")
+next_level = ExtResource("2_6cbtn")
+intro = ExtResource("3_82o8o")
 
 [node name="Third" type="TileMap" parent="."]
 position = Vector2(0, -3)
@@ -53,6 +53,6 @@ rotation = -0.0872665
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("6_w6k2i")
+stream = ExtResource("3_82o8o")
 
 [connection signal="body_entered" from="FinishArea" to="." method="_on_body_entered"]
