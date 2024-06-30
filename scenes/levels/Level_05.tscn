@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://bnip4dw2t0cox"]
 
-[ext_resource type="Script" path="res://scenes/levels/Level_035.gd" id="1_2bn3g"]
-[ext_resource type="PackedScene" uid="uid://b7s1r2dws8hvo" path="res://scenes/levels/Level_04.tscn" id="2_oofps"]
-[ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="3_xyd7i"]
-[ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="5_15jxy"]
-[ext_resource type="AudioStream" uid="uid://bdltph0w83tra" path="res://assets/audio/Level35.ogg" id="5_l561m"]
+[ext_resource type="Script" path="res://scenes/levels/Level_05.gd" id="1_rda6x"]
+[ext_resource type="PackedScene" uid="uid://c4jc46ncl3y0p" path="res://scenes/levels/Level_06.tscn" id="2_s2l0u"]
+[ext_resource type="AudioStream" uid="uid://bdltph0w83tra" path="res://assets/audio/Level05.ogg" id="3_u27p4"]
+[ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="4_1qfjc"]
+[ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="6_yv4gg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
 size = Vector2(20.4, 51)
 
-[node name="Level035" type="Node2D" node_paths=PackedStringArray("start_point", "finish_area")]
-script = ExtResource("1_2bn3g")
+[node name="Level05" type="Node2D" node_paths=PackedStringArray("start_point", "finish_area")]
+script = ExtResource("1_rda6x")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
-next_level = ExtResource("2_oofps")
-intro = ExtResource("5_l561m")
+next_level = ExtResource("2_s2l0u")
+intro = ExtResource("3_u27p4")
 
 [node name="Third" type="TileMap" parent="."]
 position = Vector2(0, -3)
-tile_set = ExtResource("3_xyd7i")
+tile_set = ExtResource("4_1qfjc")
 format = 2
 layer_0/name = "floor"
 layer_0/tile_data = PackedInt32Array(-1, 458752, 0, 65535, 458752, 0, -65536, 458752, 0, 0, 458752, 0, -4, 458752, 0, 65532, 458752, 0, -3, 458752, 0, 65533, 458752, 0, -2, 458752, 0, 65534, 458752, 0, -65535, 458752, 0, 1, 458752, 0, -65534, 458752, 0, 2, 458752, 0, -65533, 458752, 0, 3, 458752, 0, -65532, 458752, 0, 4, 458752, 0, -65531, 458752, 0, 5, 458752, 0, 131068, 458752, 0, 131069, 458752, 0, 131070, 458752, 0, 131071, 458752, 0, 65536, 458752, 0, 65537, 458752, 0, 65538, 458752, 0, 65539, 458752, 0, 65540, 458752, 0, 65541, 458752, 0, -65540, 458752, 0, -65539, 458752, 0, -65538, 458752, 0, -65537, 458752, 0, -131072, 458752, 0, -131071, 458752, 0, -131070, 458752, 0, -131069, 458752, 0, -131068, 458752, 0, -131067, 458752, 0, -131066, 458752, 0, -65530, 458752, 0, 6, 458752, 0, 65542, 458752, 0, -131065, 458752, 0, -65529, 458752, 0, 7, 458752, 0, 65543, 458752, 0, -131064, 458752, 0, -65528, 458752, 0, 8, 458752, 0, 65544, 458752, 0, -131063, 458752, 0, -65527, 458752, 0, 9, 458752, 0, 65545, 458752, 0)
@@ -46,12 +46,12 @@ position = Vector2(1290, -1.78814e-07)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_ethtd")
 
-[node name="Guard" parent="." instance=ExtResource("5_15jxy")]
+[node name="Guard" parent="." instance=ExtResource("6_yv4gg")]
 position = Vector2(1180, -4)
 facing_direction = 3
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("5_l561m")
+stream = ExtResource("3_u27p4")
 
 [connection signal="body_entered" from="FinishArea" to="." method="_on_body_entered"]

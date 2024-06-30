@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_cwl6b"]
 [ext_resource type="Script" path="res://scenes/levels/Level_04.gd" id="1_f56m7"]
-[ext_resource type="PackedScene" uid="uid://c4jc46ncl3y0p" path="res://scenes/levels/Level_06.tscn" id="2_ktf60"]
+[ext_resource type="PackedScene" uid="uid://bnip4dw2t0cox" path="res://scenes/levels/Level_05.tscn" id="2_axpfd"]
 [ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="3_ou7bs"]
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="5_ymhbm"]
 [ext_resource type="PackedScene" uid="uid://b2xmxsw5evod0" path="res://objects/WoodenChest.tscn" id="6_fjc6a"]
@@ -34,7 +34,7 @@ point_count = 7
 script = ExtResource("1_f56m7")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
-next_level = ExtResource("2_ktf60")
+next_level = ExtResource("2_axpfd")
 intro = ExtResource("8_r5wvm")
 
 [node name="Fourth" type="TileMap" parent="."]

@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_o4of8"]
 [ext_resource type="Script" path="res://scenes/levels/Level_03.gd" id="1_q7jsi"]
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="2_ujtuc"]
-[ext_resource type="PackedScene" uid="uid://bnip4dw2t0cox" path="res://scenes/levels/Level_035.tscn" id="2_wrsvs"]
+[ext_resource type="PackedScene" uid="uid://bnip4dw2t0cox" path="res://scenes/levels/Level_05.tscn" id="2_wrsvs"]
 [ext_resource type="AudioStream" uid="uid://7g66v6wvkn0w" path="res://assets/audio/Level03.ogg" id="6_w6k2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
