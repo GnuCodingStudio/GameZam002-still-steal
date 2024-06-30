@@ -7,7 +7,7 @@ class_name Guard
 @export var path_follow: PathFollow2D
 @export var action_controller: ActionController
 @export var facing_direction: Direction = Direction.BOTTOM
-
+@export var sharedFollowPath: bool = false
 
 @onready var detection_area = %DetectionArea
 @onready var animated_sprite_2d = $AnimatedSprite2D
@@ -26,9 +26,11 @@ enum Direction { TOP, RIGHT, BOTTOM, LEFT }
 func _ready():
 	#Static guard has not path follow
 	if(path_follow != null):
-		path_follow.progress_ratio = randf()
+		if(!sharedFollowPath):
+			path_follow.progress_ratio = randf()
+		else:
+			path_follow.progress_ratio = 0
 	_ajust_facing_orientation(facing_direction)
-
 
 func _physics_process(delta):
 	if path_follow != null and state == GuardState.MOVING:

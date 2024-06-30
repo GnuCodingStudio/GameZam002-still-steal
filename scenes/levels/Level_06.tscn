@@ -150,6 +150,7 @@ speed = 2.8
 path_follow = NodePath("../Path4/PathFollow4")
 action_controller = NodePath("../ActionController")
 facing_direction = 0
+sharedFollowPath = true
 
 [node name="Path4" type="Path2D" parent="."]
 position = Vector2(517, 1282)
@@ -165,6 +166,7 @@ speed = 2.8
 path_follow = NodePath("../Path5/PathFollow5")
 action_controller = NodePath("../ActionController")
 facing_direction = 0
+sharedFollowPath = true
 
 [node name="Path5" type="Path2D" parent="."]
 curve = SubResource("Curve2D_0u2y2")
