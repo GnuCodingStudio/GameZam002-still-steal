@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_cwl6b"]
 [ext_resource type="Script" path="res://scenes/levels/Level_04.gd" id="1_f56m7"]
-[ext_resource type="PackedScene" uid="uid://bycvdu0l1rsc8" path="res://scenes/TheEnd.tscn" id="2_kgdhm"]
+[ext_resource type="PackedScene" uid="uid://c4jc46ncl3y0p" path="res://scenes/levels/Level_06.tscn" id="2_ktf60"]
 [ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="3_ou7bs"]
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="5_ymhbm"]
 [ext_resource type="PackedScene" uid="uid://b2xmxsw5evod0" path="res://objects/WoodenChest.tscn" id="6_fjc6a"]
@@ -34,7 +34,7 @@ point_count = 7
 script = ExtResource("1_f56m7")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
-next_level = ExtResource("2_kgdhm")
+next_level = ExtResource("2_ktf60")
 intro = ExtResource("8_r5wvm")
 
 [node name="Fourth" type="TileMap" parent="."]
@@ -51,7 +51,7 @@ layer_2/tile_data = PackedInt32Array()
 layer_3/name = "chest"
 layer_3/tile_data = PackedInt32Array(-131071, 65536, 8, -131067, 65536, 8, 458752, 65536, 8, 196611, 65539, 2)
 layer_4/name = "floor_deco"
-layer_4/tile_data = PackedInt32Array(327689, 851968, 7, -65533, 655360, 7, -1, 655360, 7, -65529, 655360, 7, 131079, 786432, 1, 131078, 786432, 1, 65538, 1638406, 4, 131068, 1638406, 4, 393215, 851968, 1610612743, 458761, 851968, 805306375, 196611, 720896, 7, 131069, 1638406, 4, 131070, 1638406, 4, 131071, 1638406, 4, 65536, 1638406, 4, 65537, 1638406, 4, 262143, 1638406, 4, 327679, 1638406, 4, 65540, 1638406, 4, 65541, 1638406, 4, 65542, 1638406, 4, 65543, 1638406, 4, 524283, 851968, 1342177287, 65531, 851968, 805306375, -65541, 851968, 1610612743, 131067, 1310726, 7, 196603, 1310726, 7, 262139, 1310726, 7, 327675, 1310726, 7, 393211, 1310726, 7, 458747, 1310726, 7, -5, 720896, 1610612736, 393226, 589824, 3, 458762, 589824, 3)
+layer_4/tile_data = PackedInt32Array(327689, 851968, 7, -65533, 655360, 7, -1, 655360, 7, -65529, 655360, 7, 131079, 786432, 1, 131078, 786432, 1, 65538, 1638406, 4, 131068, 1638406, 4, 393215, 851968, 1610612743, 458761, 851968, 805306375, 196611, 720896, 7, 131069, 1638406, 4, 131070, 1638406, 4, 131071, 1638406, 4, 65536, 1638406, 4, 65537, 1638406, 4, 262143, 1638406, 4, 327679, 1638406, 4, 65540, 1638406, 4, 65541, 1638406, 4, 65542, 1638406, 4, 65543, 1638406, 4, 524283, 851968, 1342177287, 65531, 851968, 805306375, -65541, 851968, 1610612743, 131067, 1310726, 7, 196603, 1310726, 7, 262139, 1310726, 7, 327675, 1310726, 7, 393211, 1310726, 7, 458747, 1310726, 7, -5, 720896, 1610612736, 393226, 655360, 1610678275, 458762, 655360, 1610678275)
 
 [node name="ActionController" parent="." instance=ExtResource("6_j1qnq")]
 max_actions = 5
@@ -124,23 +124,19 @@ rotates = false
 
 [node name="Guard4" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("3_ou7bs")]
 position = Vector2(449, 428)
+rotation = 3.14159
 action_controller = NodePath("../ActionController")
-facing_direction = 0
 
 [node name="Camera1" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("5_ymhbm")]
 unique_name_in_owner = true
 position = Vector2(192, -195)
 rotation = 1.5708
 action_controller = NodePath("../ActionController")
-rotation_enabled = true
-rotation_start_angle = 90.0
-rotation_end_angle = 2.08165e-12
 
 [node name="Camera2" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("5_ymhbm")]
 unique_name_in_owner = true
 position = Vector2(696, -200)
 action_controller = NodePath("../ActionController")
-rotation_enabled = true
 
 [node name="Camera3" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("5_ymhbm")]
 unique_name_in_owner = true
