@@ -118,14 +118,15 @@ action_controller = NodePath("../ActionController")
 curve = SubResource("Curve2D_sjck3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path3"]
-position = Vector2(-230, 495)
+position = Vector2(-230, 537.914)
 rotation = -0.00596414
+progress = 42.9185
 rotates = false
 
 [node name="Guard4" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("6_yv4gg")]
 position = Vector2(449, 428)
-rotation = 3.14159
 action_controller = NodePath("../ActionController")
+facing_direction = 0
 
 [node name="Camera1" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("8_i1sy5")]
 unique_name_in_owner = true
