@@ -130,6 +130,9 @@ func _on_detection_area_body_entered(body):
 func _can_see(body) -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(global_position, body.global_position)
+	query.collide_with_areas = false
+	query.collide_with_bodies = true
+	query.hit_from_inside = true
 	query.exclude = [self]
 	var result = space_state.intersect_ray(query)
-	return result.collider == body
+	return result.has("collider") and result["collider"] == body
