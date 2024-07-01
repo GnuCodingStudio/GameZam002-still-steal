@@ -1,3 +1,4 @@
+@tool
 extends RigidBody2D
 
 class_name Guard
@@ -25,7 +26,7 @@ enum Direction { TOP, RIGHT, BOTTOM, LEFT }
 
 func _ready():
 	#Static guard has not path follow
-	if(path_follow != null):
+	if not Engine.is_editor_hint() and path_follow != null:
 		if(!sharedFollowPath):
 			path_follow.progress_ratio = randf()
 		else:
@@ -33,6 +34,9 @@ func _ready():
 	_ajust_facing_orientation(facing_direction)
 
 func _physics_process(delta):
+	if Engine.is_editor_hint():
+		return
+
 	if path_follow != null and state == GuardState.MOVING:
 		path_follow.progress += (60 * speed * delta)
 		move_and_collide(path_follow.global_position - global_position)
