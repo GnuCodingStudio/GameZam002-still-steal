@@ -31,13 +31,13 @@ point_count = 9
 
 [sub_resource type="Curve2D" id="Curve2D_bvruj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2, -88, 0, 0, 0, 0, -304, -93, 0, 0, 0, 0, -307, -688, 0, 0, 0, 0, 299, -695, 0, 0, 0, 0, 299, -92, 0, 0, 0, 0, 3, -87, 0, 0, 0, 0, 4, -87, 0, 0, 0, 0, 1, -84, 0, 0, 0, 0, 2, -86)
+"points": PackedVector2Array(0, 0, 0, 0, 2.08165e-12, -40, 0, 0, 0, 0, -304, -40, 0, 0, 0, 0, -304, -630, 0, 0, 0, 0, 301, -632, 0, 0, 0, 0, 299, -40, 0, 0, 0, 0, 2.08165e-12, -40)
 }
-point_count = 9
+point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_0u2y2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 511, 591, 0, 0, 0, 0, 816, 588, 0, 0, 0, 0, 817, 1192, 0, 0, 0, 0, 213, 1193, 0, 0, 0, 0, 213, 593, 0, 0, 0, 0, 513, 589)
+"points": PackedVector2Array(0, 0, 0, 0, 511, 569, 0, 0, 0, 0, 816, 569, 0, 0, 0, 0, 817, 1158, 0, 0, 0, 0, 213, 1158, 0, 0, 0, 0, 213, 569, 0, 0, 0, 0, 511, 569)
 }
 point_count = 6
 
@@ -145,7 +145,7 @@ position = Vector2(-2.00751, -18.2595)
 rotation = 1.56608
 
 [node name="Guard4" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("5_h8l3u")]
-position = Vector2(519, 1196)
+position = Vector2(519, 1173)
 speed = 2.8
 path_follow = NodePath("../Path4/PathFollow4")
 action_controller = NodePath("../ActionController")
@@ -153,12 +153,12 @@ facing_direction = 0
 sharedFollowPath = true
 
 [node name="Path4" type="Path2D" parent="."]
-position = Vector2(517, 1282)
+position = Vector2(517, 1200)
 curve = SubResource("Curve2D_bvruj")
 
 [node name="PathFollow4" type="PathFollow2D" parent="Path4"]
-position = Vector2(2, -88)
-rotation = -3.12525
+position = Vector2(2.08165e-12, -40)
+rotation = 3.14159
 
 [node name="Guard5" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("5_h8l3u")]
 position = Vector2(514, 588)
@@ -172,8 +172,7 @@ sharedFollowPath = true
 curve = SubResource("Curve2D_0u2y2")
 
 [node name="PathFollow5" type="PathFollow2D" parent="Path5"]
-position = Vector2(511, 591)
-rotation = -0.00983575
+position = Vector2(511, 569)
 
 [node name="Guard6" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("5_h8l3u")]
 position = Vector2(1082, 539)
