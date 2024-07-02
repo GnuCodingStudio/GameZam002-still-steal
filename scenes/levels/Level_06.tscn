@@ -218,10 +218,11 @@ curve = SubResource("Curve2D_ra2cc")
 position = Vector2(-24, -2)
 rotation = 0.00425529
 
-[node name="Camera1" parent="." instance=ExtResource("6_lhvu2")]
+[node name="Camera1" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("6_lhvu2")]
 unique_name_in_owner = true
 position = Vector2(-62, -226)
 rotation = 1.5708
+action_controller = NodePath("../ActionController")
 rotation_enabled = true
 
 [node name="Camera2" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("6_lhvu2")]
