@@ -55,16 +55,6 @@ color = Color(1, 0.407843, 0.407843, 0.196078)
 texture = SubResource("CanvasTexture_o81d5")
 polygon = PackedVector2Array(0, 0, 300, 2.08165e-12, 285.317, 92.705, 242.705, 176.336, 176.336, 242.705, 92.705, 285.317, 2.08165e-12, 300)
 
-[node name="YRayon" type="ColorRect" parent="DetectionArea"]
-offset_right = 10.0
-offset_bottom = 300.0
-color = Color(1, 0, 0, 0.592157)
-
-[node name="XRayon" type="ColorRect" parent="DetectionArea"]
-offset_right = 300.0
-offset_bottom = 10.0
-color = Color(1, 0, 0, 0.592157)
-
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(0.095, 0.095)
