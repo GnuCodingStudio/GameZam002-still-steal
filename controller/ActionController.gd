@@ -13,7 +13,7 @@ func _ready():
 
 func activate() -> bool:
 	var can_activate = max_actions > 0
-	prints("Can activate", can_activate)
+	#prints("Can activate", can_activate)
 	
 	if max_actions >= 0:
 		max_actions -= 1

@@ -220,7 +220,7 @@ rotation = 0.00425529
 
 [node name="Camera1" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("6_lhvu2")]
 unique_name_in_owner = true
-position = Vector2(-62, -226)
+position = Vector2(-60, -201)
 rotation = 1.5708
 action_controller = NodePath("../ActionController")
 rotation_enabled = true
@@ -233,19 +233,19 @@ rotation_enabled = true
 
 [node name="Camera3" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("6_lhvu2")]
 unique_name_in_owner = true
-position = Vector2(1, 418)
+position = Vector2(0, 439)
 action_controller = NodePath("../ActionController")
 rotation_enabled = true
 
 [node name="Camera4" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("6_lhvu2")]
 unique_name_in_owner = true
-position = Vector2(961, 123)
+position = Vector2(958, 143)
 action_controller = NodePath("../ActionController")
 rotation_enabled = true
 
 [node name="Camera5" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("6_lhvu2")]
 unique_name_in_owner = true
-position = Vector2(1538, 1609)
+position = Vector2(1540, 1593)
 rotation = 4.71239
 action_controller = NodePath("../ActionController")
 rotation_enabled = true
@@ -254,13 +254,13 @@ rotation_end_angle = 270.0
 
 [node name="Camera6" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("6_lhvu2")]
 unique_name_in_owner = true
-position = Vector2(1539, -88)
+position = Vector2(1536, -72)
 action_controller = NodePath("../ActionController")
 rotation_enabled = true
 
 [node name="Camera7" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("6_lhvu2")]
 unique_name_in_owner = true
-position = Vector2(334, -221)
+position = Vector2(332, -198)
 action_controller = NodePath("../ActionController")
 rotation_enabled = true
 rotation_start_angle = 90.0
@@ -268,7 +268,7 @@ rotation_end_angle = 2.08165e-12
 
 [node name="Camera8" parent="." node_paths=PackedStringArray("action_controller") instance=ExtResource("6_lhvu2")]
 unique_name_in_owner = true
-position = Vector2(775, -223)
+position = Vector2(775, -197)
 rotation = 1.5708
 action_controller = NodePath("../ActionController")
 rotation_enabled = true
