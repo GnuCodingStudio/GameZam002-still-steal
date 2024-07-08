@@ -1,11 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://olp45guapj4w"]
 
 [ext_resource type="Texture2D" uid="uid://bmidppiw0ms0x" path="res://assets/images/menu-background.png" id="1_58esq"]
+[ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_aq523"]
 [ext_resource type="Texture2D" uid="uid://bl00fkbep7git" path="res://assets/images/logo.png" id="2_mqvj0"]
-[ext_resource type="Script" path="res://scripts/StartGameButton.gd" id="3_3rj1l"]
 [ext_resource type="AudioStream" uid="uid://dqgkeqtoc858h" path="res://assets/audio/MainMenu.mp3" id="4_d5u7b"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_aq523")
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -23,17 +24,32 @@ offset_bottom = 743.0
 rotation = -0.292038
 texture = ExtResource("2_mqvj0")
 
-[node name="Button" type="Button" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 offset_left = 385.0
-offset_top = 676.0
-offset_right = 657.0
-offset_bottom = 794.0
+offset_top = 628.0
+offset_right = 678.0
+offset_bottom = 872.0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "   Start   "
-script = ExtResource("3_3rj1l")
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "  Restart  "
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_d5u7b")
 volume_db = 10.0
 autoplay = true
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
