@@ -12,6 +12,7 @@ var _chests_to_open = 0
 const ohoh = preload("res://assets/audio/sfx/oh-oh.ogg")
 
 func _ready():
+	SaveController.update_progression(get_tree().current_scene)
 	var playerScene = preload("res://actors/Player.tscn")
 	player = playerScene.instantiate()
 	player.position = start_point.position
