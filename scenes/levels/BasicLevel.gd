@@ -94,7 +94,8 @@ func _you_failed():
 	add_child(audioPlayer)
 	audioPlayer.stream = ohoh
 	audioPlayer.volume_db = -5
-	audioPlayer.play()
+	if !player.disabled:
+		audioPlayer.play()
 
 	player.disabled = true
 	await audioPlayer.finished
