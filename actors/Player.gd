@@ -6,6 +6,9 @@ class_name Player
 @export var rotation_speed: float = 10
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+const ohoh = preload("res://assets/audio/sfx/oh-oh.ogg")
+signal on_player_catch
+
 var moving_direction: Vector2
 var facing_direction: Vector2
 var disabled: bool:
@@ -24,11 +27,9 @@ func _unhandled_input(event):
 	if moving_direction != Vector2.ZERO:
 		facing_direction = moving_direction
 
-
 func _physics_process(delta):
 	move_and_collide(moving_direction.normalized() * speed)
 	_adjust_orientation()
-
 
 func _adjust_orientation():
 	if moving_direction != Vector2.ZERO:
@@ -55,4 +56,14 @@ func _ajust_facing_orientation():
 		animated_sprite_2d.play("facing_top")
 	elif facing_direction.y > 0:
 		animated_sprite_2d.play("facing_bottom")
-	
+		
+func onCatch():
+	var audioPlayer = AudioStreamPlayer.new()
+	add_child(audioPlayer)
+	audioPlayer.stream = ohoh
+	audioPlayer.volume_db = -5
+	if !self.disabled:
+		audioPlayer.play()
+	self.disabled = true
+	await audioPlayer.finished
+	audioPlayer.queue_free()

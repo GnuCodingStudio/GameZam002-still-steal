@@ -152,7 +152,3 @@ action_controller = NodePath("../ActionController")
 [node name="Intro" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_xtwnf")
-
-[connection signal="on_player_catch" from="Camera1" to="." method="_on_player_catch"]
-[connection signal="on_player_catch" from="Camera2" to="." method="_on_player_catch"]
-[connection signal="on_player_catch" from="Camera3" to="." method="_on_player_catch"]
