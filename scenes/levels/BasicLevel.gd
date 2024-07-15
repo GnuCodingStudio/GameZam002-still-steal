@@ -74,7 +74,7 @@ func _on_player_caught_by_camera():
 	_you_failed()
 
 func _on_player_caught_by_guard():
-	player._player_catch()
+	player.onCatch()
 	await get_tree().create_timer(0.2).timeout
 	_you_failed()
 

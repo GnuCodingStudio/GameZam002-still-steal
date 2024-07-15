@@ -58,12 +58,12 @@ func _ajust_facing_orientation():
 		animated_sprite_2d.play("facing_bottom")
 		
 func onCatch():
-	var audioPlayer = AudioStreamPlayer.new()
-	add_child(audioPlayer)
-	audioPlayer.stream = ohoh
-	audioPlayer.volume_db = -5
 	if !self.disabled:
+		var audioPlayer = AudioStreamPlayer.new()
+		add_child(audioPlayer)
+		audioPlayer.stream = ohoh
+		audioPlayer.volume_db = -5
 		audioPlayer.play()
-	self.disabled = true
-	await audioPlayer.finished
-	audioPlayer.queue_free()
+		self.disabled = true
+		await audioPlayer.finished
+		audioPlayer.queue_free()
