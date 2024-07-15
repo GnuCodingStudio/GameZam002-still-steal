@@ -51,5 +51,3 @@ position = Vector2(320, -195)
 [node name="Intro" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_6xlps")
-
-[connection signal="on_opened" from="Chest" to="." method="_on_chest_on_opened"]
