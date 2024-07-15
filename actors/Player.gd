@@ -7,7 +7,7 @@ class_name Player
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 const ohoh = preload("res://assets/audio/sfx/oh-oh.ogg")
-signal on_player_catch
+
 
 var moving_direction: Vector2
 var facing_direction: Vector2
@@ -59,11 +59,11 @@ func _ajust_facing_orientation():
 		
 func onCatch():
 	if !self.disabled:
+		self.disabled = true
 		var audioPlayer = AudioStreamPlayer.new()
 		add_child(audioPlayer)
 		audioPlayer.stream = ohoh
 		audioPlayer.volume_db = -5
 		audioPlayer.play()
-		self.disabled = true
 		await audioPlayer.finished
 		audioPlayer.queue_free()
