@@ -7,7 +7,8 @@ class_name BasicLevel
 @export var intro: AudioStream
 
 var player: Player
-var _chests_to_open = 0
+var _chests_to_open := 0
+var _has_failed := false
 
 func _ready():
 	SaveController.update_progression(get_tree().current_scene)
@@ -69,18 +70,17 @@ func is_level_completed() -> bool:
 	return _chests_to_open == 0
 
 func _on_player_caught_by_camera():
-	player.onCatch()
-	await get_tree().create_timer(0.2).timeout
 	_you_failed()
 
 func _on_player_caught_by_guard():
-	player.onCatch()
-	await get_tree().create_timer(0.2).timeout
 	_you_failed()
 
 func _you_failed():
-	await get_tree().create_timer(0.3).timeout
-	const youFailedScene = preload("res://scenes/YouFailed.tscn")
-	add_child(youFailedScene.instantiate())
-	await get_tree().create_timer(.5).timeout
-	get_tree().reload_current_scene()
+	if not _has_failed:
+		_has_failed = true
+		player.onCatch()
+		await get_tree().create_timer(0.3).timeout
+		const youFailedScene = preload("res://scenes/YouFailed.tscn")
+		add_child(youFailedScene.instantiate())
+		await get_tree().create_timer(.5).timeout
+		get_tree().reload_current_scene()
