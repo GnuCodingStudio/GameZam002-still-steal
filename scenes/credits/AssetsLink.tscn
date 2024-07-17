@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://n56tpsjxu2j2"]
+
+[ext_resource type="Script" path="res://scenes/credits/AssetsLink.gd" id="1_c05yl"]
+
+[node name="Assets01" type="VBoxContainer"]
+offset_right = 126.0
+offset_bottom = 38.0
+size_flags_horizontal = 4
+script = ExtResource("1_c05yl")
+
+[node name="Title" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+horizontal_alignment = 1
+
+[node name="LinkButton" type="LinkButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

@@ -31,3 +31,7 @@ func to_level_path(progression: ProgressionSave) -> String:
 
 func _load_level(file: String):
 	get_tree().change_scene_to_file(file)
+
+
+func _on_credits_pressed():
+	get_tree().change_scene_to_file("res://scenes/credits/Credits.tscn")

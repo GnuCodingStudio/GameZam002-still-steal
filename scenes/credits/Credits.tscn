@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://by13jlqmd3u82"]
+
+[ext_resource type="PackedScene" uid="uid://n56tpsjxu2j2" path="res://scenes/credits/AssetsLink.tscn" id="1_0oes2"]
+[ext_resource type="Script" path="res://scenes/credits/Credits.gd" id="1_g4djn"]
+[ext_resource type="Theme" uid="uid://byqj3nau1wiai" path="res://assets/resources/MainTheme.tres" id="1_yb8sr"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7ds34"]
+color = Color(0.615686, 0.698039, 1, 1)
+thickness = 3
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4djn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BigThanks" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.615686, 0.698039, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "Big thanks to"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_7ds34")
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Margin" type="MarginContainer" parent="Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_yb8sr")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="List" type="VBoxContainer" parent="Scroll/Margin"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Assets01" parent="Scroll/Margin/List" instance=ExtResource("1_0oes2")]
+layout_mode = 2
+title = "Treasure chest by Blarumyrran"
+link = "https://opengameart.org/content/treasure-chests-32x32-and-16x16"
+
+[node name="Assets02" parent="Scroll/Margin/List" instance=ExtResource("1_0oes2")]
+layout_mode = 2
+title = "Scribble Dungeons by Kenney"
+link = "https://www.kenney.nl/assets/scribble-dungeons"
+
+[node name="Assets03" parent="Scroll/Margin/List" instance=ExtResource("1_0oes2")]
+layout_mode = 2
+title = "Universal Lpc Sprite Male 01 Full by Les naturelles"
+link = "https://www.pngitem.com/middle/hRRhio_universal-lpc-sprite-male-01-full-free-pixel"
+
+[node name="Assets04" parent="Scroll/Margin/List" instance=ExtResource("1_0oes2")]
+layout_mode = 2
+title = "Thief by AntumDeluge"
+link = "https://opengameart.org/content/thief-0"
+
+[node name="Assets05" parent="Scroll/Margin/List" instance=ExtResource("1_0oes2")]
+layout_mode = 2
+title = "Topdown Shooter by Kenney"
+link = "https://kenney.nl/assets/topdown-shooter"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "  Quit  "
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_quit_pressed"]
