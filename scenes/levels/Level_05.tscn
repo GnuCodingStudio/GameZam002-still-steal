@@ -118,7 +118,7 @@ action_controller = NodePath("../ActionController")
 curve = SubResource("Curve2D_sjck3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path3"]
-position = Vector2(-230, 537.914)
+position = Vector2(-230, 537.915)
 rotation = -0.00596414
 progress = 42.9185
 rotates = false
