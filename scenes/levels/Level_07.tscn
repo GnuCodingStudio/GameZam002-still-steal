@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dqt747w6v018h"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level_06.gd" id="1_ohtum"]
-[ext_resource type="PackedScene" uid="uid://bycvdu0l1rsc8" path="res://scenes/TheEnd.tscn" id="2_bysfe"]
+[ext_resource type="PackedScene" uid="uid://1uy0b4cup01e" path="res://scenes/levels/Level_08.tscn" id="2_b1ca7"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="3_mhyfw"]
 [ext_resource type="PackedScene" uid="uid://kr66s3n8pjx" path="res://controller/ActionController.tscn" id="4_7sd73"]
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="6_tiso0"]
@@ -63,7 +63,7 @@ point_count = 23
 script = ExtResource("1_ohtum")
 start_point = NodePath("StartPoint")
 finish_area = NodePath("FinishArea")
-next_level = ExtResource("2_bysfe")
+next_level = ExtResource("2_b1ca7")
 
 [node name="Map" type="TileMap" parent="."]
 position = Vector2(0, -3)
