@@ -13,7 +13,9 @@ config_version=5
 config/name="StillSteal"
 run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/image="res://assets/images/menu-background.png"
 config/icon="res://assets/images/Still-steal.jpg"
+boot_splash/minimum_display_time=200
 
 [autoload]
 
@@ -30,6 +32,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="viewport"
+window/icon="res://assets/images/Still-steal.jpg"
 
 [gui]
 

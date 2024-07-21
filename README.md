@@ -10,7 +10,10 @@
 
   <br/>
   <!-- <img src="./path/to/game.gif" width="600" /> -->
+  
+  [![Available on itch.io](/assets/release/itchio.png)](https://gnucodingstudio.itch.io/still-steal-game-zam-002)
 </div>
+
 
 
 ## Feature
