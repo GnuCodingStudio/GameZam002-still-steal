@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmqul5fjpvgvw"]
+[gd_scene load_steps=8 format=3 uid="uid://dmqul5fjpvgvw"]
 
 [ext_resource type="Texture2D" uid="uid://bj8xp0a1q5us7" path="res://assets/map/sample/tilesheet.png" id="1_y43hb"]
+[ext_resource type="AudioStream" uid="uid://dpi202r5ao7f5" path="res://assets/audio/sfx/unlock-door.mp3" id="2_88h5n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wb848"]
 
@@ -50,3 +51,9 @@ animation = &"close"
 unique_name_in_owner = true
 position = Vector2(0.499997, -40.5)
 shape = SubResource("RectangleShape2D_y8jxy")
+
+[node name="Unlock_Door" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_88h5n")
+volume_db = 12.311
+attenuation = 0.0717937
