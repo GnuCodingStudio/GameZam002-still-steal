@@ -2,6 +2,7 @@ extends Node2D
 class_name BasicLevel
 
 @export var start_point: Node2D
+@export var end_gate: Node2D
 @export var finish_area: Area2D
 @export var next_level: PackedScene
 @export var intro: AudioStream
@@ -65,6 +66,7 @@ func _finish_entered(body):
 
 func _on_chest_opened():
 	_chests_to_open -= 1
+	_open_the_finish_door()
 
 func is_level_completed() -> bool:
 	return _chests_to_open == 0
@@ -84,3 +86,7 @@ func _you_failed():
 		add_child(youFailedScene.instantiate())
 		await get_tree().create_timer(.5).timeout
 		get_tree().reload_current_scene()
+		
+func _open_the_finish_door():
+	if is_level_completed():
+		end_gate._open()
