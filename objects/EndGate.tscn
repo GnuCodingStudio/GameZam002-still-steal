@@ -3,8 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bj8xp0a1q5us7" path="res://assets/map/sample/tilesheet.png" id="1_y43hb"]
 [ext_resource type="AudioStream" uid="uid://dpi202r5ao7f5" path="res://assets/audio/sfx/unlock-door.mp3" id="2_88h5n"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wb848"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8bhl2"]
 atlas = ExtResource("1_y43hb")
 region = Rect2(1408, 0, 128, 128)
@@ -35,25 +33,35 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8jxy"]
 size = Vector2(115, 37)
 
-[node name="Door" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6n0oa"]
+size = Vector2(117, 35)
+
+[node name="EndGate" type="Node2D"]
 modulate = Color(0.243137, 0.741176, 0.847059, 1)
 rotation = 3.14159
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_wb848")
+position = Vector2(-0.000101407, 40)
 sprite_frames = SubResource("SpriteFrames_16fa8")
 animation = &"close"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionGate" type="CollisionShape2D" parent="StaticBody2D"]
 unique_name_in_owner = true
-position = Vector2(0.499997, -40.5)
+position = Vector2(0.499897, -1)
 shape = SubResource("RectangleShape2D_y8jxy")
 
-[node name="Unlock_Door" type="AudioStreamPlayer2D" parent="."]
+[node name="Unlock_Door" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_88h5n")
-volume_db = 12.311
-attenuation = 0.0717937
+volume_db = 8.0
+
+[node name="Finish" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
+unique_name_in_owner = true
+position = Vector2(0.50001, -0.499997)
+shape = SubResource("RectangleShape2D_6n0oa")
+disabled = true

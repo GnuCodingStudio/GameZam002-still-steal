@@ -153,7 +153,8 @@ rotation = 2.61799
 action_controller = NodePath("../ActionController")
 
 [node name="EndGate" parent="." instance=ExtResource("8_ve8lg")]
-position = Vector2(960, 959)
+position = Vector2(960, 997)
+scale = Vector2(1, -1)
 script = ExtResource("9_7grb1")
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]

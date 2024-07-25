@@ -66,7 +66,7 @@ func _finish_entered(body):
 
 func _on_chest_opened():
 	_chests_to_open -= 1
-	_open_the_finish_door()
+	_try_open_end_gate()
 
 func is_level_completed() -> bool:
 	return _chests_to_open == 0
@@ -87,6 +87,6 @@ func _you_failed():
 		await get_tree().create_timer(.5).timeout
 		get_tree().reload_current_scene()
 		
-func _open_the_finish_door():
+func _try_open_end_gate():
 	if is_level_completed():
-		end_gate._open()
+		end_gate.open()
