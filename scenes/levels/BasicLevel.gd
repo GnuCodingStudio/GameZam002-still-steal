@@ -2,7 +2,7 @@ extends Node2D
 class_name BasicLevel
 
 @export var start_point: Node2D
-@export var end_gate: Node2D
+@export var end_gate: EndGate
 @export var finish_area: Area2D
 @export var next_level: PackedScene
 @export var intro: AudioStream
@@ -19,6 +19,8 @@ func _ready():
 	add_child(player)
 
 	finish_area.body_entered.connect(_finish_entered)
+	if end_gate != null:
+		end_gate.finish_body_entered.connect(_finish_entered)
 
 	_init_chests()
 	_init_cameras()
@@ -88,5 +90,5 @@ func _you_failed():
 		get_tree().reload_current_scene()
 		
 func _try_open_end_gate():
-	if is_level_completed():
+	if is_level_completed() and end_gate != null:
 		end_gate.open()

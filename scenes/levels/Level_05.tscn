@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7s1r2dws8hvo"]
+[gd_scene load_steps=14 format=3 uid="uid://b7s1r2dws8hvo"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level_05.gd" id="1_rda6x"]
 [ext_resource type="PackedScene" uid="uid://c4jc46ncl3y0p" path="res://scenes/levels/Level_06.tscn" id="2_s2l0u"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="6_yv4gg"]
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="8_i1sy5"]
 [ext_resource type="PackedScene" uid="uid://dmqul5fjpvgvw" path="res://objects/EndGate.tscn" id="8_ve8lg"]
-[ext_resource type="Script" path="res://objects/EndGate.gd" id="9_7grb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
 size = Vector2(9.59993, 24.9)
@@ -36,7 +35,7 @@ point_count = 7
 script = ExtResource("1_rda6x")
 start_point = NodePath("StartPoint")
 end_gate = NodePath("EndGate")
-finish_area = NodePath("FinishArea")
+finish_area = NodePath("OldFinishArea")
 next_level = ExtResource("2_s2l0u")
 
 [node name="Fourth" type="TileMap" parent="."]
@@ -62,18 +61,22 @@ max_actions = 5
 unique_name_in_owner = true
 position = Vector2(-448, -64)
 
-[node name="FinishArea" type="Area2D" parent="."]
+[node name="EndGate" parent="." instance=ExtResource("8_ve8lg")]
+position = Vector2(960, 997)
+scale = Vector2(1, -1)
+
+[node name="OldFinishArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-4, 891)
+position = Vector2(996, 1094)
 collision_layer = 32
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OldFinishArea"]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(966.75, 108)
 rotation = 1.5708
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_ethtd")
+metadata/_edit_lock_ = true
 
 [node name="Chest1" parent="." instance=ExtResource("6_qx15q")]
 position = Vector2(215, 552)
@@ -151,11 +154,6 @@ unique_name_in_owner = true
 position = Vector2(68, 960)
 rotation = 2.61799
 action_controller = NodePath("../ActionController")
-
-[node name="EndGate" parent="." instance=ExtResource("8_ve8lg")]
-position = Vector2(960, 997)
-scale = Vector2(1, -1)
-script = ExtResource("9_7grb1")
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
