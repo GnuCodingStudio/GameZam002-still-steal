@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://l5nk2awiyipd"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://l5nk2awiyipd"]
 
 [ext_resource type="Texture2D" uid="uid://bj8xp0a1q5us7" path="res://assets/map/sample/tilesheet.png" id="1_84rdg"]
 [ext_resource type="Texture2D" uid="uid://cl6l3l0d310ug" path="res://assets/chests_32x32.png" id="2_m68qb"]
 [ext_resource type="PackedScene" uid="uid://b2xmxsw5evod0" path="res://objects/WoodenChest.tscn" id="3_u0ixh"]
 [ext_resource type="Texture2D" uid="uid://kvneeqa6brvg" path="res://assets/characters/guard/universal-lpc-sprite_male_01_full.png" id="4_4atnu"]
 [ext_resource type="Texture2D" uid="uid://cl5m3tpwhhf2h" path="res://assets/map/fps/kenney_top-down-shooter/Tilesheet/tilesheet_complete.png" id="4_17icn"]
+[ext_resource type="PackedScene" uid="uid://dmqul5fjpvgvw" path="res://objects/EndGate.tscn" id="5_kl2qu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gu8pn"]
 texture = ExtResource("1_84rdg")
@@ -159,6 +160,7 @@ texture_region_size = Vector2i(128, 128)
 10:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 10:1/0/physics_layer_1/angular_velocity = 0.0
 11:1/0 = 0
+11:1/0/modulate = Color(0.243137, 0.741176, 0.847059, 1)
 11:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:1/0/physics_layer_0/angular_velocity = 0.0
 11:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
@@ -216,11 +218,18 @@ texture_region_size = Vector2i(128, 128)
 7:2/0/physics_layer_0/angular_velocity = 0.0
 7:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 7:2/0/physics_layer_1/angular_velocity = 0.0
+8:2/next_alternative_id = 2
 8:2/0 = 0
 8:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:2/0/physics_layer_0/angular_velocity = 0.0
 8:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 8:2/0/physics_layer_1/angular_velocity = 0.0
+8:2/1 = 1
+8:2/1/modulate = Color(0.956863, 0.772549, 0.607843, 1)
+8:2/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:2/1/physics_layer_0/angular_velocity = 0.0
+8:2/1/physics_layer_1/linear_velocity = Vector2(0, 0)
+8:2/1/physics_layer_1/angular_velocity = 0.0
 9:2/next_alternative_id = 2
 9:2/0 = 0
 9:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -238,12 +247,18 @@ texture_region_size = Vector2i(128, 128)
 10:2/0/physics_layer_0/angular_velocity = 0.0
 10:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 10:2/0/physics_layer_1/angular_velocity = 0.0
+11:2/next_alternative_id = 2
 11:2/0 = 0
-11:2/0/modulate = Color(0.666667, 0.141176, 0.133333, 1)
 11:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:2/0/physics_layer_0/angular_velocity = 0.0
 11:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 11:2/0/physics_layer_1/angular_velocity = 0.0
+11:2/1 = 1
+11:2/1/modulate = Color(0.243137, 0.741176, 0.847059, 1)
+11:2/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+11:2/1/physics_layer_0/angular_velocity = 0.0
+11:2/1/physics_layer_1/linear_velocity = Vector2(0, 0)
+11:2/1/physics_layer_1/angular_velocity = 0.0
 12:2/0 = 0
 12:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:2/0/physics_layer_0/angular_velocity = 0.0
@@ -1139,6 +1154,10 @@ texture_region_size = Vector2i(64, 64)
 5:9/0/physics_layer_0/angular_velocity = 0.0
 5:9/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 5:9/0/physics_layer_1/angular_velocity = 0.0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_64jjc"]
+resource_name = "door"
+scenes/2/scene = ExtResource("5_kl2qu")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qewjv"]
 texture = ExtResource("4_17icn")
@@ -3774,3 +3793,4 @@ sources/1 = SubResource("TileSetAtlasSource_vuayc")
 sources/6 = SubResource("TileSetAtlasSource_qewjv")
 sources/2 = SubResource("TileSetScenesCollectionSource_47yur")
 sources/3 = SubResource("TileSetAtlasSource_y6oh6")
+sources/4 = SubResource("TileSetScenesCollectionSource_64jjc")

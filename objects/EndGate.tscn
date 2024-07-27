@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmqul5fjpvgvw"]
+
+[ext_resource type="Script" path="res://objects/EndGate.gd" id="1_kbunr"]
+[ext_resource type="Texture2D" uid="uid://bj8xp0a1q5us7" path="res://assets/map/sample/tilesheet.png" id="1_y43hb"]
+[ext_resource type="AudioStream" uid="uid://dpi202r5ao7f5" path="res://assets/audio/sfx/unlock-door.mp3" id="2_88h5n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bhl2"]
+atlas = ExtResource("1_y43hb")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ah06"]
+atlas = ExtResource("1_y43hb")
+region = Rect2(1408, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_16fa8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bhl2")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ah06")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8jxy"]
+size = Vector2(128, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6n0oa"]
+size = Vector2(117, 35)
+
+[node name="EndGate" type="Node2D"]
+modulate = Color(0.243137, 0.741176, 0.847059, 1)
+rotation = 3.14159
+script = ExtResource("1_kbunr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-0.000101407, 40)
+sprite_frames = SubResource("SpriteFrames_16fa8")
+animation = &"close"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionGate" type="CollisionShape2D" parent="StaticBody2D"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_y8jxy")
+
+[node name="Unlock_Door" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_88h5n")
+volume_db = 8.0
+
+[node name="Finish" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="FinishShape" type="CollisionShape2D" parent="Finish"]
+unique_name_in_owner = true
+modulate = Color(0, 1, 0, 1)
+position = Vector2(0.50001, -0.499997)
+shape = SubResource("RectangleShape2D_6n0oa")
+disabled = true
+
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]
