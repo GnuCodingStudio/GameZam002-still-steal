@@ -37,6 +37,7 @@ start_point = NodePath("StartPoint")
 end_gate = NodePath("EndGate")
 finish_area = NodePath("OldFinishArea")
 next_level = ExtResource("2_s2l0u")
+intro = ExtResource("3_xtwnf")
 
 [node name="Fourth" type="TileMap" parent="."]
 position = Vector2(0, -3)
