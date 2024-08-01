@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7s1r2dws8hvo"]
+[gd_scene load_steps=13 format=3 uid="uid://b7s1r2dws8hvo"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level_05.gd" id="1_rda6x"]
 [ext_resource type="PackedScene" uid="uid://c4jc46ncl3y0p" path="res://scenes/levels/Level_06.tscn" id="2_s2l0u"]
@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="6_yv4gg"]
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="8_i1sy5"]
 [ext_resource type="PackedScene" uid="uid://dmqul5fjpvgvw" path="res://objects/EndGate.tscn" id="8_ve8lg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ethtd"]
-size = Vector2(9.59993, 24.9)
 
 [sub_resource type="Curve2D" id="Curve2D_kfcbi"]
 _data = {
@@ -31,15 +28,14 @@ _data = {
 }
 point_count = 7
 
-[node name="Level05" type="Node2D" node_paths=PackedStringArray("start_point", "end_gate", "finish_area")]
+[node name="Level05" type="Node2D" node_paths=PackedStringArray("start_point", "end_gate")]
 script = ExtResource("1_rda6x")
 start_point = NodePath("StartPoint")
 end_gate = NodePath("EndGate")
-finish_area = NodePath("OldFinishArea")
 next_level = ExtResource("2_s2l0u")
 intro = ExtResource("3_xtwnf")
 
-[node name="Fourth" type="TileMap" parent="."]
+[node name="Map" type="TileMap" parent="."]
 position = Vector2(0, -3)
 tile_set = ExtResource("4_1qfjc")
 format = 2
@@ -65,19 +61,6 @@ position = Vector2(-448, -64)
 [node name="EndGate" parent="." instance=ExtResource("8_ve8lg")]
 position = Vector2(960, 997)
 scale = Vector2(1, -1)
-
-[node name="OldFinishArea" type="Area2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(996, 1094)
-collision_layer = 32
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OldFinishArea"]
-modulate = Color(0, 1, 0, 1)
-rotation = 1.5708
-scale = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_ethtd")
-metadata/_edit_lock_ = true
 
 [node name="Chest1" parent="." instance=ExtResource("6_qx15q")]
 position = Vector2(215, 552)

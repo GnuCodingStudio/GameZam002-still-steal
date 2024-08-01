@@ -3,7 +3,6 @@ class_name BasicLevel
 
 @export var start_point: Node2D
 @export var end_gate: EndGate
-@export var finish_area: Area2D
 @export var next_level: PackedScene
 @export var intro: AudioStream
 
@@ -18,14 +17,11 @@ func _ready():
 	player.position = start_point.position
 	add_child(player)
 
-	finish_area.body_entered.connect(_finish_entered)
-	if end_gate != null:
-		end_gate.finish_body_entered.connect(_finish_entered)
-
 	_init_chests()
 	_init_cameras()
 	_init_guards()
 	_init_level()
+	_init_end_gate()
 
 func _init_level():
 	if intro != null and IntrosController.can_play(intro.resource_path):
@@ -59,6 +55,11 @@ func _init_guards():
 	var guards = get_tree().get_nodes_in_group("guards")
 	for guard in guards:
 		guard.on_player_catch.connect(_on_player_caught_by_guard)
+		
+func _init_end_gate():
+	end_gate.finish_body_entered.connect(_finish_entered)
+	if is_level_completed():
+		_try_open_end_gate()
 
 func _finish_entered(body):
 	if is_level_completed() and body is Player:
