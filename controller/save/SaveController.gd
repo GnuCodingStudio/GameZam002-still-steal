@@ -4,7 +4,6 @@ extends Node
 var save_file_path = "user://save/"
 
 var progression_file_name = save_file_path + "progression.json"
-var progression: ProgressionSave = ProgressionSave.new()
 
 
 func _ready():
@@ -22,6 +21,7 @@ func load_progression() -> ProgressionSave:
 
 
 func update_progression(scene: Node):
+	var progression = ProgressionSave.new()
 	progression.next_level = scene.scene_file_path
 	
 	var content = _serialize(progression)
