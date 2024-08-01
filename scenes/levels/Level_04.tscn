@@ -27,7 +27,7 @@ layer_2/tile_data = PackedInt32Array()
 layer_3/name = "chest"
 layer_3/tile_data = PackedInt32Array()
 layer_4/name = "floor_deco"
-layer_4/tile_data = PackedInt32Array(65532, 720896, 1610612736, -65526, 655360, 1610678275)
+layer_4/tile_data = PackedInt32Array(65532, 720896, 1610612736)
 
 [node name="StartPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
