@@ -89,7 +89,7 @@ position = Vector2(-574, 1481)
 [node name="EndGate" parent="." instance=ExtResource("8_o8yp0")]
 position = Vector2(-615, -64)
 rotation = 1.5708
-scale = Vector2(1, -1)
+scale = Vector2(-1, 1)
 
 [node name="Guard1" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("5_h8l3u")]
 position = Vector2(-250, 502)

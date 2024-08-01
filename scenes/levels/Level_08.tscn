@@ -88,7 +88,7 @@ position = Vector2(772, 1533)
 
 [node name="EndGate" parent="." instance=ExtResource("5_4a3kl")]
 position = Vector2(832, -237)
-scale = Vector2(1, -1)
+scale = Vector2(-1, 1)
 
 [node name="Guard1" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("5_qthna")]
 position = Vector2(-395, 1334)
