@@ -55,11 +55,11 @@ func _init_guards():
 	var guards = get_tree().get_nodes_in_group("guards")
 	for guard in guards:
 		guard.on_player_catch.connect(_on_player_caught_by_guard)
-		
+
 func _init_end_gate():
 	end_gate.finish_body_entered.connect(_finish_entered)
 	if is_level_completed():
-		_try_open_end_gate()
+		_try_open_end_gate(false)
 
 func _finish_entered(body):
 	if is_level_completed() and body is Player:
@@ -69,7 +69,7 @@ func _finish_entered(body):
 
 func _on_chest_opened():
 	_chests_to_open -= 1
-	_try_open_end_gate()
+	_try_open_end_gate(true)
 
 func is_level_completed() -> bool:
 	return _chests_to_open == 0
@@ -89,7 +89,7 @@ func _you_failed():
 		add_child(youFailedScene.instantiate())
 		await get_tree().create_timer(.5).timeout
 		get_tree().reload_current_scene()
-		
-func _try_open_end_gate():
-	if is_level_completed() and end_gate != null:
-		end_gate.open()
+
+func _try_open_end_gate(with_sound: bool):
+	if is_level_completed():
+		end_gate.open(with_sound)

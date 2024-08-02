@@ -13,12 +13,13 @@ func _ready():
 	finish_shape.disabled = true
 
 
-func open():
+func open(with_sound: bool):
 	await get_tree().create_timer(0.8).timeout
 	animated_sprite.play("open")
 	finish_shape.disabled = false
 	collision_gate.disabled = true
-	unlock_door.play()
+	if with_sound:
+		unlock_door.play()
 
 
 func _on_finish_body_entered(body):
