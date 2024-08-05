@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=13 format=3 uid="uid://l5nk2awiyipd"]
 
 [ext_resource type="Texture2D" uid="uid://bj8xp0a1q5us7" path="res://assets/map/sample/tilesheet.png" id="1_84rdg"]
-[ext_resource type="Texture2D" uid="uid://cl6l3l0d310ug" path="res://assets/chests_32x32.png" id="2_m68qb"]
+[ext_resource type="Texture2D" uid="uid://cl6l3l0d310ug" path="res://assets/images/chests_32x32.png" id="2_hxepi"]
 [ext_resource type="PackedScene" uid="uid://b2xmxsw5evod0" path="res://objects/WoodenChest.tscn" id="3_u0ixh"]
 [ext_resource type="Texture2D" uid="uid://kvneeqa6brvg" path="res://assets/characters/guard/universal-lpc-sprite_male_01_full.png" id="4_4atnu"]
 [ext_resource type="Texture2D" uid="uid://cl5m3tpwhhf2h" path="res://assets/map/fps/kenney_top-down-shooter/Tilesheet/tilesheet_complete.png" id="4_17icn"]
@@ -916,7 +916,7 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vuayc"]
 resource_name = "chest"
-texture = ExtResource("2_m68qb")
+texture = ExtResource("2_hxepi")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 1:0/0/z_index = 1
