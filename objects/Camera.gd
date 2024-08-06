@@ -74,6 +74,8 @@ func deactivateCamera():
 
 
 func _on_actionnable_input_event(viewport, event, shape_idx):
+	var cursor = load("res://assets/mouse/tool_wrench.png")
+	Input.set_custom_mouse_cursor(cursor)
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			deactivateCamera()
@@ -89,3 +91,8 @@ func _can_see(body) -> bool:
 	query.exclude = [self]
 	var result = space_state.intersect_ray(query)
 	return result.has("collider") and result["collider"] == body
+
+
+func _on_area_mouse_exited():
+	var cursor = load("res://assets/mouse/default.png")
+	Input.set_custom_mouse_cursor(cursor)
