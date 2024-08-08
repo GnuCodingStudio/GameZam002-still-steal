@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://b7s1r2dws8hvo"]
 
-[ext_resource type="Script" path="res://scenes/levels/Level_05.gd" id="1_rda6x"]
+[ext_resource type="Script" path="res://scenes/levels/BasicLevel.gd" id="1_gjh7r"]
 [ext_resource type="PackedScene" uid="uid://c4jc46ncl3y0p" path="res://scenes/levels/Level_06.tscn" id="2_s2l0u"]
 [ext_resource type="AudioStream" uid="uid://udw6raaa6jkm" path="res://assets/audio/intro/Level05.ogg" id="3_xtwnf"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="4_1qfjc"]
@@ -29,7 +29,7 @@ _data = {
 point_count = 7
 
 [node name="Level05" type="Node2D" node_paths=PackedStringArray("start_point", "end_gate")]
-script = ExtResource("1_rda6x")
+script = ExtResource("1_gjh7r")
 start_point = NodePath("StartPoint")
 end_gate = NodePath("EndGate")
 next_level = ExtResource("2_s2l0u")

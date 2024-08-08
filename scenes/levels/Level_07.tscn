@@ -1,6 +1,5 @@
 [gd_scene load_steps=17 format=3 uid="uid://dqt747w6v018h"]
 
-[ext_resource type="Script" path="res://scenes/levels/Level_06.gd" id="1_ohtum"]
 [ext_resource type="PackedScene" uid="uid://1uy0b4cup01e" path="res://scenes/levels/Level_08.tscn" id="2_b1ca7"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="3_mhyfw"]
 [ext_resource type="PackedScene" uid="uid://kr66s3n8pjx" path="res://controller/ActionController.tscn" id="4_7sd73"]
@@ -8,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="7_neeao"]
 [ext_resource type="PackedScene" uid="uid://b2xmxsw5evod0" path="res://objects/WoodenChest.tscn" id="7_s3ovo"]
 [ext_resource type="PackedScene" uid="uid://dmqul5fjpvgvw" path="res://objects/EndGate.tscn" id="8_63ix7"]
+
+[sub_resource type="GDScript" id="GDScript_25hv3"]
+script/source = "extends BasicLevel
+"
 
 [sub_resource type="Curve2D" id="Curve2D_2cqm0"]
 _data = {
@@ -58,7 +61,7 @@ _data = {
 point_count = 23
 
 [node name="Level_07" type="Node2D" node_paths=PackedStringArray("start_point", "end_gate")]
-script = ExtResource("1_ohtum")
+script = SubResource("GDScript_25hv3")
 start_point = NodePath("StartPoint")
 end_gate = NodePath("EndGate")
 next_level = ExtResource("2_b1ca7")

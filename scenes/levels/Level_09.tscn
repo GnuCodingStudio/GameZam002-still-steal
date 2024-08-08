@@ -1,16 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://jb7qc4f3b1pk"]
+[gd_scene load_steps=13 format=3 uid="uid://jb7qc4f3b1pk"]
 
-[ext_resource type="Script" path="res://scenes/levels/Level_06.gd" id="1_52rm7"]
-[ext_resource type="PackedScene" uid="uid://bycvdu0l1rsc8" path="res://scenes/TheEnd.tscn" id="2_ghmdv"]
+[ext_resource type="Script" path="res://scenes/levels/Level_09.gd" id="1_blhhk"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="3_cbdst"]
 [ext_resource type="PackedScene" uid="uid://kr66s3n8pjx" path="res://controller/ActionController.tscn" id="4_7oanf"]
 [ext_resource type="PackedScene" uid="uid://b2xmxsw5evod0" path="res://objects/WoodenChest.tscn" id="5_1ouw8"]
 [ext_resource type="PackedScene" uid="uid://15jte8wcowt5" path="res://actors/Guard.tscn" id="6_mjvpk"]
 
+[sub_resource type="Curve2D" id="Curve2D_yqkcb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -56, 273, 0, 0, 0, 0, 317, 263, 0, 0, 0, 0, 528, 260)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_frfpo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 32, 1, 0, 0, 0, 0, -304, 46, 0, 0, 0, 0, -515, 42, 0, 0, 0, 0, -515, -89)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_1v1j7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -58, -52, 0, 0, 0, 0, -57, 94, 0, 0, 0, 0, 418, 79, 0, 0, 0, 0, 540, -1, 0, 0, 0, 0, 661, -60)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_2rlcc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, -32, 0, 0, 0, 0, 0, 147, 0, 0, 0, 0, -177, 147, 0, 0, 0, 0, -303, 151)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_fhuj4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -50, -3, 0, 0, 0, 0, 444, -4)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1vwqr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -12, -1, 0, 0, 0, 0, 371, -2)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_x8ar8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 27, 3, 0, 0, 0, 0, -412, 23)
+}
+point_count = 2
+
 [node name="Level_9" type="Node2D" node_paths=PackedStringArray("start_point")]
-script = ExtResource("1_52rm7")
+script = ExtResource("1_blhhk")
 start_point = NodePath("StartPoint")
-next_level = ExtResource("2_ghmdv")
+endChapter = true
 
 [node name="Map" type="TileMap" parent="."]
 position = Vector2(0, -3)
@@ -26,7 +67,7 @@ layer_2/tile_data = PackedInt32Array()
 layer_3/name = "chest"
 layer_3/tile_data = PackedInt32Array()
 layer_4/name = "floor_deco"
-layer_4/tile_data = PackedInt32Array(-65541, 655360, 1610678275, 65531, 655360, 1610678275, -5, 851968, 1610612743, -65520, 851968, 7, 786448, 851968, 1342177287, 851963, 851968, 805306375, 131073, 1638406, 4, 131083, 1638406, 4, 393227, 1638406, 4, 327679, 1638406, 4, 458751, 1638406, 4, 589828, 1638406, 4, 589830, 1638406, 4, -65522, 1638406, 4, 851966, 1638406, 4, 720900, 1638406, 4, 786438, 1638406, 4, 9, 1638406, 4, 327676, 1638406, 4, 458748, 1638406, 4, 524296, 1638406, 4, 65546, 1638406, 4, 393230, 1638406, 4, -1, 1638406, 4)
+layer_4/tile_data = PackedInt32Array(-5, 851968, 1610612743, -65520, 851968, 7, 786448, 851968, 1342177287, 851963, 851968, 805306375, 131073, 1638406, 4, 131083, 1638406, 4, 393227, 1638406, 4, 327679, 1638406, 4, 458751, 1638406, 4, 589828, 1638406, 4, 589830, 1638406, 4, -65522, 1638406, 4, 851966, 1638406, 4, 720900, 1638406, 4, 786438, 1638406, 4, 9, 1638406, 4, 327676, 1638406, 4, 458748, 1638406, 4, 524296, 1638406, 4, 65546, 1638406, 4, 393230, 1638406, 4, -1, 1638406, 4)
 
 [node name="ActionController" parent="." instance=ExtResource("4_7oanf")]
 
@@ -38,33 +79,113 @@ position = Vector2(709, 1576)
 position = Vector2(833, 573)
 
 [node name="Guard1" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("6_mjvpk")]
-position = Vector2(179, 186)
-speed = 2.8
-path_follow = NodePath("")
-action_controller = NodePath("")
+position = Vector2(123, 438)
+speed = 4.0
+path_follow = NodePath("../Path1/PathFollow1")
+action_controller = NodePath("../ActionController")
 facing_direction = 0
-sharedFollowPath = true
+
+[node name="Path1" type="Path2D" parent="."]
+position = Vector2(179, 186)
+curve = SubResource("Curve2D_yqkcb")
+
+[node name="PathFollow1" type="PathFollow2D" parent="Path1"]
+position = Vector2(-56, 273)
+rotation = -0.0268032
+loop = false
 
 [node name="Guard2" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("6_mjvpk")]
 position = Vector2(1485, 759)
-speed = 2.8
-path_follow = NodePath("")
-action_controller = NodePath("")
+speed = 4.0
+path_follow = NodePath("../Path2/PathFollow2")
+action_controller = NodePath("../ActionController")
 facing_direction = 0
-sharedFollowPath = true
+
+[node name="Path2" type="Path2D" parent="."]
+position = Vector2(1485, 759)
+curve = SubResource("Curve2D_frfpo")
+
+[node name="PathFollow2" type="PathFollow2D" parent="Path2"]
+position = Vector2(32, 1)
+rotation = 3.00846
+loop = false
 
 [node name="Guard3" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("6_mjvpk")]
 position = Vector2(60, 716)
-speed = 2.8
-path_follow = NodePath("")
-action_controller = NodePath("")
+speed = 4.0
+path_follow = NodePath("../Path3/PathFollow3")
+action_controller = NodePath("../ActionController")
 facing_direction = 0
-sharedFollowPath = true
+
+[node name="Path3" type="Path2D" parent="."]
+position = Vector2(60, 716)
+curve = SubResource("Curve2D_1v1j7")
+
+[node name="PathFollow3" type="PathFollow2D" parent="Path3"]
+position = Vector2(-58, -52)
+rotation = 1.56395
+loop = false
 
 [node name="Guard4" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("6_mjvpk")]
 position = Vector2(1206, 305)
-speed = 2.8
-path_follow = NodePath("")
-action_controller = NodePath("")
+speed = 4.0
+path_follow = NodePath("../Path4/PathFollow4")
+action_controller = NodePath("../ActionController")
 facing_direction = 0
-sharedFollowPath = true
+
+[node name="Path4" type="Path2D" parent="."]
+position = Vector2(1206, 305)
+curve = SubResource("Curve2D_2rlcc")
+
+[node name="PathFollow4" type="PathFollow2D" parent="Path4"]
+position = Vector2(-1, -32)
+rotation = 1.56521
+loop = false
+
+[node name="Guard5" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("6_mjvpk")]
+position = Vector2(253, 580)
+speed = 4.0
+path_follow = NodePath("../Path5/PathFollow5")
+action_controller = NodePath("../ActionController")
+facing_direction = 0
+
+[node name="Path5" type="Path2D" parent="."]
+position = Vector2(253, 580)
+curve = SubResource("Curve2D_fhuj4")
+
+[node name="PathFollow5" type="PathFollow2D" parent="Path5"]
+position = Vector2(-50, -3)
+rotation = -0.00202429
+loop = false
+
+[node name="Guard6" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("6_mjvpk")]
+position = Vector2(213, 683)
+speed = 4.0
+path_follow = NodePath("../Path6/PathFollow6")
+action_controller = NodePath("../ActionController")
+facing_direction = 0
+
+[node name="Path6" type="Path2D" parent="."]
+position = Vector2(213, 683)
+curve = SubResource("Curve2D_1vwqr")
+
+[node name="PathFollow6" type="PathFollow2D" parent="Path6"]
+position = Vector2(-12, -1)
+rotation = -0.00261096
+loop = false
+
+[node name="Guard7" parent="." node_paths=PackedStringArray("path_follow", "action_controller") instance=ExtResource("6_mjvpk")]
+position = Vector2(1426, 514)
+speed = 4.0
+path_follow = NodePath("../Path7/PathFollow7")
+action_controller = NodePath("../ActionController")
+facing_direction = 0
+
+[node name="Path7" type="Path2D" parent="."]
+position = Vector2(1426, 514)
+curve = SubResource("Curve2D_x8ar8")
+
+[node name="PathFollow7" type="PathFollow2D" parent="Path7"]
+position = Vector2(27, 3)
+rotation = 3.09607
+loop = false

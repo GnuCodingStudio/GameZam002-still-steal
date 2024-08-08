@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://1uy0b4cup01e"]
 
-[ext_resource type="Script" path="res://scenes/levels/Level_06.gd" id="1_0pmu7"]
-[ext_resource type="PackedScene" uid="uid://bycvdu0l1rsc8" path="res://scenes/TheEnd.tscn" id="2_0bwg7"]
+[ext_resource type="Script" path="res://scenes/levels/BasicLevel.gd" id="1_1rvqw"]
+[ext_resource type="PackedScene" uid="uid://jb7qc4f3b1pk" path="res://scenes/levels/Level_09.tscn" id="2_4i8oe"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="3_kcoxc"]
 [ext_resource type="PackedScene" uid="uid://kr66s3n8pjx" path="res://controller/ActionController.tscn" id="4_62ax6"]
 [ext_resource type="PackedScene" uid="uid://dmqul5fjpvgvw" path="res://objects/EndGate.tscn" id="5_4a3kl"]
@@ -58,10 +58,10 @@ _data = {
 point_count = 9
 
 [node name="Level_08" type="Node2D" node_paths=PackedStringArray("start_point", "end_gate")]
-script = ExtResource("1_0pmu7")
+script = ExtResource("1_1rvqw")
 start_point = NodePath("StartPoint")
 end_gate = NodePath("EndGate")
-next_level = ExtResource("2_0bwg7")
+next_level = ExtResource("2_4i8oe")
 
 [node name="Map" type="TileMap" parent="."]
 position = Vector2(9.09495e-13, -5)

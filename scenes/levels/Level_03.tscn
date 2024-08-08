@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://bbldg58i11kmh"]
 
+[ext_resource type="Script" path="res://scenes/levels/BasicLevel.gd" id="1_dcvgk"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="1_o4of8"]
-[ext_resource type="Script" path="res://scenes/levels/Level_03.gd" id="1_q7jsi"]
 [ext_resource type="PackedScene" uid="uid://bnip4dw2t0cox" path="res://scenes/levels/Level_04.tscn" id="2_6cbtn"]
 [ext_resource type="PackedScene" uid="uid://7oyofxooer87" path="res://objects/Camera.tscn" id="2_ujtuc"]
 [ext_resource type="AudioStream" uid="uid://7g66v6wvkn0w" path="res://assets/audio/intro/Level03.ogg" id="3_82o8o"]
 [ext_resource type="PackedScene" uid="uid://dmqul5fjpvgvw" path="res://objects/EndGate.tscn" id="6_8s1tb"]
 
 [node name="Level03" type="Node2D" node_paths=PackedStringArray("start_point", "end_gate")]
-script = ExtResource("1_q7jsi")
+script = ExtResource("1_dcvgk")
 start_point = NodePath("StartPoint")
 end_gate = NodePath("EndGate")
 next_level = ExtResource("2_6cbtn")

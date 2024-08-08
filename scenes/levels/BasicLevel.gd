@@ -5,6 +5,7 @@ class_name BasicLevel
 @export var end_gate: EndGate
 @export var next_level: PackedScene
 @export var intro: AudioStream
+@export var endChapter: bool
 
 var player: Player
 var _chests_to_open := 0
@@ -57,7 +58,6 @@ func _init_guards():
 		guard.on_player_catch.connect(_on_player_caught_by_guard)
 
 func _init_end_gate():
-	end_gate.finish_body_entered.connect(_finish_entered)
 	if is_level_completed():
 		_try_open_end_gate(false)
 
@@ -70,6 +70,7 @@ func _finish_entered(body):
 func _on_chest_opened():
 	_chests_to_open -= 1
 	_try_open_end_gate(true)
+	_finish_first_chapter()
 
 func is_level_completed() -> bool:
 	return _chests_to_open == 0
@@ -92,4 +93,16 @@ func _you_failed():
 
 func _try_open_end_gate(with_sound: bool):
 	if is_level_completed():
-		end_gate.open(with_sound)
+		if end_gate:
+			end_gate.open(with_sound)
+		
+func _finish_first_chapter():
+	#Si level terminé est le level de fin de chapitre
+	if endChapter:
+		#Les guardes apparaissent
+		var guards = get_tree().get_nodes_in_group("guards")
+		for guard in guards:
+			guard.path_follow.progress_ratio = 0
+			guard.visible = true
+			guard.detection_area.visible = true
+			guard.detection_area.monitoring = true

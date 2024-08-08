@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://c4jc46ncl3y0p"]
 
-[ext_resource type="Script" path="res://scenes/levels/Level_06.gd" id="1_lg3vu"]
+[ext_resource type="Script" path="res://scenes/levels/BasicLevel.gd" id="1_qiwb3"]
 [ext_resource type="PackedScene" uid="uid://dqt747w6v018h" path="res://scenes/levels/Level_07.tscn" id="2_ii14w"]
 [ext_resource type="TileSet" uid="uid://l5nk2awiyipd" path="res://res/Level.tres" id="3_cxhrg"]
 [ext_resource type="PackedScene" uid="uid://kr66s3n8pjx" path="res://controller/ActionController.tscn" id="4_bx0vl"]
@@ -58,7 +58,7 @@ _data = {
 point_count = 7
 
 [node name="Level06" type="Node2D" node_paths=PackedStringArray("start_point", "end_gate")]
-script = ExtResource("1_lg3vu")
+script = ExtResource("1_qiwb3")
 start_point = NodePath("StartPoint")
 end_gate = NodePath("EndGate")
 next_level = ExtResource("2_ii14w")
