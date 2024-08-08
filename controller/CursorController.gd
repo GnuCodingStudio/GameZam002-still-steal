@@ -13,4 +13,4 @@ func use_wrench():
 
 
 func use_scope():
-	Input.set_custom_mouse_cursor(_wrench)
+	Input.set_custom_mouse_cursor(_scope)
