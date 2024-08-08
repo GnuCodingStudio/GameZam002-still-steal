@@ -74,6 +74,7 @@ func deactivateCamera():
 
 
 func _on_actionnable_input_event(viewport, event, shape_idx):
+	CursorController.use_wrench()
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			deactivateCamera()
@@ -89,3 +90,7 @@ func _can_see(body) -> bool:
 	query.exclude = [self]
 	var result = space_state.intersect_ray(query)
 	return result.has("collider") and result["collider"] == body
+
+
+func _on_area_mouse_exited():
+	CursorController.reset_default()

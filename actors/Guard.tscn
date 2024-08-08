@@ -405,4 +405,5 @@ color = Color(1, 0.407843, 0.407843, 0.196078)
 polygon = PackedVector2Array(-50, 2.08165e-12, 50, 2.08165e-12, 130, 180, -130, 180)
 
 [connection signal="input_event" from="ClickableArea" to="." method="_on_actionnable_input_event"]
+[connection signal="mouse_exited" from="ClickableArea" to="." method="_on_area_mouse_exited"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

@@ -21,6 +21,7 @@ boot_splash/minimum_display_time=200
 
 IntrosController="*res://controller/IntrosController.gd"
 SaveController="*res://controller/save/SaveController.gd"
+CursorController="*res://controller/CursorController.gd"
 
 [debug]
 
@@ -32,6 +33,9 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://assets/mouse/default.png"
+mouse_cursor/custom_image_hotspot=Vector2(2.08165e-12, 2.08165e-12)
+mouse_cursor/tooltip_position_offset=Vector2(2.08165e-12, 2.08165e-12)
 window/icon="res://assets/images/Still-steal.jpg"
 
 [gui]
