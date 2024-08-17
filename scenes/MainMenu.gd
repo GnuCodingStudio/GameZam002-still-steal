@@ -4,6 +4,7 @@ const first_level_file = "res://scenes/levels/Level_01.tscn"
 
 
 @onready var continue_button = %ContinueButton
+@onready var game_console = %GameConsole
 
 
 func _ready():
@@ -39,16 +40,20 @@ func _on_credits_pressed():
 
 func _debug_invisible(target: String):
 	match(target):
-		"camera":
+		"camera", "cameras":
 			DebugController.detectable_by_camera = false
-		"guard":
+			game_console.log_info("Cameras disabled")
+		"guard", "guards":
 			DebugController.detectable_by_guard = false
+			game_console.log_info("Guards disabled")
 		"all":
 			DebugController.detectable_by_camera = false
 			DebugController.detectable_by_guard = false
-		"none":
+			game_console.log_info("Cameras and Guards enabled")
+		"none", "zero":
 			DebugController.detectable_by_camera = true
 			DebugController.detectable_by_guard = true
+			game_console.log_info("Cameras and Guards disabled")
 
 
 func _start_level(number: int):

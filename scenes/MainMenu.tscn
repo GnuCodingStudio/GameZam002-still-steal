@@ -52,6 +52,7 @@ layout_mode = 2
 text = "  Crédits  "
 
 [node name="GameConsole" parent="." instance=ExtResource("4_nd5et")]
+unique_name_in_owner = true
 visible = false
 offset_bottom = -568.0
 auto_help = true
