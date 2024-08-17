@@ -35,3 +35,17 @@ func _load_level(file: String):
 
 func _on_credits_pressed():
 	get_tree().change_scene_to_file("res://scenes/credits/Credits.tscn")
+
+
+func _debug_invisible(target: String):
+	match(target):
+		"camera":
+			DebugController.detectable_by_camera = false
+		"guard":
+			DebugController.detectable_by_guard = false
+		"all":
+			DebugController.detectable_by_camera = false
+			DebugController.detectable_by_guard = false
+		"none":
+			DebugController.detectable_by_camera = true
+			DebugController.detectable_by_guard = true

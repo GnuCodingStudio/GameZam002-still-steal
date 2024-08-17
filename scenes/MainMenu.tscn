@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://olp45guapj4w"]
+[gd_scene load_steps=7 format=3 uid="uid://olp45guapj4w"]
 
 [ext_resource type="Texture2D" uid="uid://bmidppiw0ms0x" path="res://assets/images/menu-background.png" id="1_58esq"]
 [ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_aq523"]
 [ext_resource type="Texture2D" uid="uid://bl00fkbep7git" path="res://assets/images/logo.png" id="2_mqvj0"]
 [ext_resource type="AudioStream" uid="uid://dqgkeqtoc858h" path="res://assets/audio/MainMenu.mp3" id="4_d5u7b"]
+[ext_resource type="PackedScene" uid="uid://b1jimh7w0a3n7" path="res://scenes/console/GameConsole.tscn" id="4_nd5et"]
+[ext_resource type="Script" path="res://scenes/console/command/Command.gd" id="5_dby6g"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_aq523")
@@ -48,6 +50,18 @@ text = "  Nouvelle partie  "
 [node name="Credits" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "  Crédits  "
+
+[node name="GameConsole" parent="." instance=ExtResource("4_nd5et")]
+visible = false
+offset_bottom = -568.0
+auto_help = true
+
+[node name="invisible" type="Node" parent="GameConsole" node_paths=PackedStringArray("target")]
+script = ExtResource("5_dby6g")
+target = NodePath("../..")
+function = "_debug_invisible"
+help = "Makes you invisible from [camera, guard, all, none]"
+parameters = Array[String](["from:string:all"])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_d5u7b")

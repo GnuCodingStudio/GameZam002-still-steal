@@ -75,10 +75,12 @@ func is_level_completed() -> bool:
 	return _chests_to_open == 0
 
 func _on_player_caught_by_camera():
-	_you_failed()
+	if DebugController.detectable_by_camera:
+		_you_failed()
 
 func _on_player_caught_by_guard():
-	_you_failed()
+	if DebugController.detectable_by_guard:
+		_you_failed()
 
 func _you_failed():
 	if not _has_failed:
