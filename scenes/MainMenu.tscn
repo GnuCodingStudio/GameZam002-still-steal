@@ -63,6 +63,13 @@ function = "_debug_invisible"
 help = "Makes you invisible from [camera, guard, all, none]"
 parameters = Array[String](["from:string:all"])
 
+[node name="start-level" type="Node" parent="GameConsole" node_paths=PackedStringArray("target")]
+script = ExtResource("5_dby6g")
+target = NodePath("../..")
+function = "_start_level"
+help = "Starts a level by its number."
+parameters = Array[String](["number:int:1"])
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_d5u7b")
 volume_db = 10.0

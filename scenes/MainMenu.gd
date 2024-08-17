@@ -49,3 +49,7 @@ func _debug_invisible(target: String):
 		"none":
 			DebugController.detectable_by_camera = true
 			DebugController.detectable_by_guard = true
+
+
+func _start_level(number: int):
+	_load_level("res://scenes/levels/Level_%02d.tscn" % number)
