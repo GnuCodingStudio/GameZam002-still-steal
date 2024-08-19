@@ -10,7 +10,7 @@ class_name Guard
 @export var facing_direction: Direction = Direction.BOTTOM
 @export var sharedFollowPath: bool = false
 
-@onready var detection_area = %DetectionArea
+@onready var detector = %Detector
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var visible_area = %VisibleArea
 
@@ -63,33 +63,33 @@ func _ajust_moving_orientation():
 	if isHorizontalyMoved:
 		if moving_direction.x < 0:
 			animated_sprite_2d.play("run_to_the_left")
-			detection_area.rotation_degrees = 90
+			detector.rotation_degrees = 90
 		elif moving_direction.x > 0:
 			animated_sprite_2d.play("run_to_the_right")
-			detection_area.rotation_degrees = -90
+			detector.rotation_degrees = -90
 	else:
 		if moving_direction.y < 0:
 			animated_sprite_2d.play("run_to_the_top")
-			detection_area.rotation_degrees = 180
+			detector.rotation_degrees = 180
 		elif moving_direction.y > 0:
 			animated_sprite_2d.play("run_to_the_bottom")
-			detection_area.rotation_degrees = 0
+			detector.rotation_degrees = 0
 
 
 func _ajust_facing_orientation(direction: Direction):
 	match direction:
 		Direction.TOP:
 			animated_sprite_2d.play("facing_top")
-			detection_area.rotation_degrees = 180
+			detector.rotation_degrees = 180
 		Direction.RIGHT:
 			animated_sprite_2d.play("facing_right")
-			detection_area.rotation_degrees = -90
+			detector.rotation_degrees = -90
 		Direction.BOTTOM:
 			animated_sprite_2d.play("facing_bottom")
-			detection_area.rotation_degrees = 0
+			detector.rotation_degrees = 0
 		Direction.LEFT:
 			animated_sprite_2d.play("facing_left")
-			detection_area.rotation_degrees = 90
+			detector.rotation_degrees = 90
 
 
 func _vector_to_direction(vector: Vector2) -> Direction:
@@ -121,8 +121,8 @@ func stun():
 		visible_area.visible = false
 
 
-func _on_detection_area_body_entered(body):
-	if state != GuardState.STUN and body is Player and _can_see(body):
+func _on_player_detected():
+	if state != GuardState.STUN:
 		print("Spotted")
 		on_player_catch.emit()
 

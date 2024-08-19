@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Camera
 
-@onready var detection_area = %DetectionArea
+@onready var detector = %Detector
 @onready var animated_sprite = %AnimatedSprite
 @onready var detection_shape = %DetectionShape
 @onready var audio_off = %AudioOff
@@ -48,17 +48,13 @@ func _create_animation_player() -> AnimationPlayer:
 	return animPlayer
 
 
-func _on_body_entered(body):
-	if body is Player and _can_see(body):
-		on_player_catch.emit()
-
 func activateCamera():
 	if not _scanning:
 		_scanning = true
 		animated_sprite.play("on")
 		audio_on.play()
 		detection_shape.disabled = false
-		detection_area.visible = true
+		detector.visible = true
 
 
 func deactivateCamera():
@@ -68,7 +64,7 @@ func deactivateCamera():
 			animated_sprite.play("off")
 			audio_off.play()
 			detection_shape.disabled = true
-			detection_area.visible = false
+			detector.visible = false
 			await get_tree().create_timer(deactivation_camera_timer).timeout
 			activateCamera()
 
@@ -80,17 +76,9 @@ func _on_actionnable_input_event(viewport, event, shape_idx):
 			deactivateCamera()
 
 
-## Check if guard can see the body or if there something between them
-func _can_see(body) -> bool:
-	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(global_position, body.global_position)
-	query.collide_with_areas = false
-	query.collide_with_bodies = true
-	query.hit_from_inside = true
-	query.exclude = [self]
-	var result = space_state.intersect_ray(query)
-	return result.has("collider") and result["collider"] == body
-
-
 func _on_area_mouse_exited():
 	CursorController.reset_default()
+
+
+func _on_player_detected():
+	on_player_catch.emit()

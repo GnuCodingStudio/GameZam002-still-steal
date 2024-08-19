@@ -1,7 +1,8 @@
-[gd_scene load_steps=50 format=3 uid="uid://15jte8wcowt5"]
+[gd_scene load_steps=51 format=3 uid="uid://15jte8wcowt5"]
 
 [ext_resource type="Script" path="res://actors/Guard.gd" id="1_dvj3w"]
 [ext_resource type="Texture2D" uid="uid://kvneeqa6brvg" path="res://assets/characters/guard/universal-lpc-sprite_male_01_full.png" id="2_8enka"]
+[ext_resource type="PackedScene" uid="uid://ch0t0hu00p6er" path="res://mechanism/Detector.tscn" id="3_onp32"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_frres"]
 radius = 34.98
@@ -391,19 +392,17 @@ sprite_frames = SubResource("SpriteFrames_ttuab")
 animation = &"facing_bottom"
 frame_progress = 0.477112
 
-[node name="DetectionArea" type="Area2D" parent="."]
+[node name="Detector" parent="." instance=ExtResource("3_onp32")]
 unique_name_in_owner = true
-collision_layer = 8
-collision_mask = 16
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Detector"]
 polygon = PackedVector2Array(-50, 2.08165e-12, 50, 2.08165e-12, 130, 180, -130, 180)
 
-[node name="VisibleArea" type="Polygon2D" parent="DetectionArea/CollisionPolygon2D"]
+[node name="VisibleArea" type="Polygon2D" parent="Detector/CollisionPolygon2D"]
 unique_name_in_owner = true
 color = Color(1, 0.407843, 0.407843, 0.196078)
 polygon = PackedVector2Array(-50, 2.08165e-12, 50, 2.08165e-12, 130, 180, -130, 180)
 
 [connection signal="input_event" from="ClickableArea" to="." method="_on_actionnable_input_event"]
 [connection signal="mouse_exited" from="ClickableArea" to="." method="_on_area_mouse_exited"]
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="player_detected" from="Detector" to="." method="_on_player_detected"]
