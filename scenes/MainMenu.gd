@@ -49,11 +49,11 @@ func _debug_invisible(target: String):
 		"all":
 			DebugController.detectable_by_camera = false
 			DebugController.detectable_by_guard = false
-			game_console.log_info("Cameras and Guards enabled")
+			game_console.log_info("Cameras and Guards disabled")
 		"none", "zero":
 			DebugController.detectable_by_camera = true
 			DebugController.detectable_by_guard = true
-			game_console.log_info("Cameras and Guards disabled")
+			game_console.log_info("Cameras and Guards enabled")
 
 
 func _start_level(number: int):
