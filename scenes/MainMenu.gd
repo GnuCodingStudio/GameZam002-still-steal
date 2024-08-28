@@ -54,7 +54,13 @@ func _debug_invisible(target: String):
 			DebugController.detectable_by_camera = true
 			DebugController.detectable_by_guard = true
 			game_console.log_info("Cameras and Guards enabled")
+		_:
+			game_console.log_error("Invalid parameter")
 
 
 func _start_level(number: int):
-	_load_level("res://scenes/levels/Level_%02d.tscn" % number)
+	var level_path = "res://scenes/levels/Level_%02d.tscn" % number
+	if ResourceLoader.exists(level_path):
+		_load_level(level_path)
+	else:
+		game_console.log_error("This level doesn't exist")
