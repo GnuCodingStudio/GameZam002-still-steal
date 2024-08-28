@@ -84,6 +84,11 @@ layout_mode = 2
 title = "Open and Closed Door by Sound Reality"
 link = "https://pixabay.com/sound-effects/open-and-closed-door-156814/"
 
+[node name="Assets07" parent="Scroll/Margin/List" instance=ExtResource("1_0oes2")]
+layout_mode = 2
+title = "Open Sans font by Steve Matteson"
+link = "https://fonts.google.com/specimen/Open+Sans"
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 20
