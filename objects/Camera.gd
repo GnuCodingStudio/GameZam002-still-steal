@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Camera
 
-@onready var detector = %Detector
+@onready var detector_area = %DetectorArea
 @onready var animated_sprite = %AnimatedSprite
 @onready var detection_shape = %DetectionShape
 @onready var audio_off = %AudioOff
@@ -54,7 +54,7 @@ func activateCamera():
 		animated_sprite.play("on")
 		audio_on.play()
 		detection_shape.disabled = false
-		detector.visible = true
+		detector_area.visible = true
 
 
 func deactivateCamera():
@@ -64,7 +64,7 @@ func deactivateCamera():
 			animated_sprite.play("off")
 			audio_off.play()
 			detection_shape.disabled = true
-			detector.visible = false
+			detector_area.visible = false
 			await get_tree().create_timer(deactivation_camera_timer).timeout
 			activateCamera()
 

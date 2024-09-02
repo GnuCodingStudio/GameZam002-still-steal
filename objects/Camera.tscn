@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://objects/Camera.gd" id="1_2cpas"]
 [ext_resource type="Texture2D" uid="uid://dhgxstfex3l5p" path="res://assets/camera/camera-on.png" id="1_jbi7c"]
 [ext_resource type="Texture2D" uid="uid://dalurg7lemyuc" path="res://assets/camera/camera-off.png" id="2_2mssq"]
+[ext_resource type="PackedScene" uid="uid://ch0t0hu00p6er" path="res://mechanism/DetectorArea.tscn" id="2_n6ij3"]
 [ext_resource type="AudioStream" uid="uid://cfkt5daaaa602" path="res://assets/audio/sfx/camera-off.mp3" id="4_fuae1"]
 [ext_resource type="AudioStream" uid="uid://boo5037p0nd4f" path="res://assets/audio/sfx/camera-on.mp3" id="5_66gbt"]
-[ext_resource type="PackedScene" uid="uid://ch0t0hu00p6er" path="res://mechanism/Detector.tscn" id="6_lu8gv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cot1"]
 
@@ -40,15 +40,15 @@ unique_name_in_owner = true
 scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_4cot1")
 
-[node name="Detector" parent="." instance=ExtResource("6_lu8gv")]
+[node name="DetectorArea" parent="." instance=ExtResource("2_n6ij3")]
 unique_name_in_owner = true
 
-[node name="DetectionShape" type="CollisionPolygon2D" parent="Detector"]
+[node name="DetectionShape" type="CollisionPolygon2D" parent="DetectorArea"]
 unique_name_in_owner = true
 show_behind_parent = true
 polygon = PackedVector2Array(0, 0, 300, 2.08165e-12, 285.317, 92.705, 242.705, 176.336, 176.336, 242.705, 92.705, 285.317, 2.08165e-12, 300)
 
-[node name="Polygon2D" type="Polygon2D" parent="Detector/DetectionShape"]
+[node name="Polygon2D" type="Polygon2D" parent="DetectorArea/DetectionShape"]
 color = Color(1, 0.407843, 0.407843, 0.196078)
 texture = SubResource("CanvasTexture_o81d5")
 polygon = PackedVector2Array(0, 0, 300, 2.08165e-12, 285.317, 92.705, 242.705, 176.336, 176.336, 242.705, 92.705, 285.317, 2.08165e-12, 300)
@@ -71,4 +71,4 @@ volume_db = 10.0
 
 [connection signal="input_event" from="ActionnableArea" to="." method="_on_actionnable_input_event"]
 [connection signal="mouse_exited" from="ActionnableArea" to="." method="_on_area_mouse_exited"]
-[connection signal="player_detected" from="Detector" to="." method="_on_player_detected"]
+[connection signal="player_detected" from="DetectorArea" to="." method="_on_player_detected"]
